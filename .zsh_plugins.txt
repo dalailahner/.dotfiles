@@ -1,0 +1,12 @@
+
+# autosuggestions (inline commands based on command histroy)
+zsh-users/zsh-autosuggestions kind:zsh
+
+# autocomplete (list with available flags under the promt)
+marlonrichert/zsh-autocomplete kind:zsh
+
+# z (better cd command)
+rupa/z kind:zsh
+
+# theme
+dalailahner/zsh-theme kind:zsh
