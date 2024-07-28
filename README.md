@@ -1,6 +1,6 @@
 # dalailahner dotfiles
 
-## install:
+### install:
 
 ```Shell
 sudo apt update && sudo apt upgrade -y
