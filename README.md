@@ -6,15 +6,21 @@
 
 ```Shell
 sudo apt update && sudo apt upgrade -y
-&& git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
-&& sudo apt install zsh git gh stow
+```
+
+```Shell
+sudo apt install zsh git gh stow
+```
+
+```Shell
+git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 ```
 
 ---
 
 ### zsh as default shell
 ```Shell
-sudo chsh -s $(which zsh)
+chsh -s $(which zsh)
 ```
 
 ---
@@ -36,8 +42,7 @@ git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git
 ### clone
 
 ```Shell
-cd ~
-&& gh repo clone .dotfiles
+cd ~ && gh repo clone .dotfiles
 ```
 
 ---
@@ -45,8 +50,7 @@ cd ~
 ### init
 
 ```Shell
-cd ~/.dotfiles
-&& stow .
+cd ~/.dotfiles && stow .
 ```
 
 ---
