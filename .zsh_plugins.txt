@@ -9,4 +9,4 @@ marlonrichert/zsh-autocomplete kind:zsh
 rupa/z kind:zsh
 
 # theme
-dalailahner/zsh-theme kind:zsh
+dalailahner/dalailahner.zsh-theme kind:zsh
