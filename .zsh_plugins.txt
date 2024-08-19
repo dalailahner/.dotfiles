@@ -1,12 +1,28 @@
+# PLUIGINS
+
+# needed for completions
+mattmc3/zephyr path:plugins/completion
+
+# coloring for build in things (like grep for example)
+mattmc3/zephyr path:plugins/color
 
 # autosuggestions (inline commands based on command histroy)
 zsh-users/zsh-autosuggestions kind:zsh
 
-# autocomplete (list with available flags under the promt)
+# autocomplete (list with available commands and parameter under the promt)
 marlonrichert/zsh-autocomplete kind:zsh
 
 # z (better cd command)
 rupa/z kind:zsh
 
-# theme
+
+# THEME
+
+# dalailahner
 dalailahner/dalailahner.zsh-theme kind:zsh
+
+
+# COMPLETIONS
+
+# fnm
+/home/$USER/.dotfiles/completions/ kind:fpath
