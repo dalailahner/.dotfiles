@@ -17,7 +17,7 @@ git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antid
 ```
 
 ```Shell
-curl -fsSL https://fnm.vercel.app/install | zsh -s -- --install-dir "./.fnm" --skip-shell
+curl -fsSL https://fnm.vercel.app/install | zsh -s -- --install-dir "${ZDOTDIR:-~}/.fnm" --skip-shell
 ```
 
 ---
@@ -46,7 +46,7 @@ git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git
 ### clone
 
 ```Shell
-cd ~ && gh repo clone .dotfiles
+cd ~ && gh repo clone ${ZDOTDIR:-~}/.dotfiles
 ```
 
 ---
@@ -54,7 +54,7 @@ cd ~ && gh repo clone .dotfiles
 ### init
 
 ```Shell
-cd ~/.dotfiles && stow .
+cd ${ZDOTDIR:-~}/.dotfiles && stow .
 ```
 
 ---
