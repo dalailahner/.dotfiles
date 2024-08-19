@@ -25,9 +25,9 @@ antidote load
 
 # colored ls
 alias ls="ls --color"
+alias pn="pnpm"
 
 
-## NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# FNM (Fast Node Manager)
+export PATH=/home/$USER/.fnm:$PATH
+eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy=recursive)"

@@ -16,9 +16,13 @@ sudo apt install zsh git gh stow
 git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 ```
 
+```Shell
+curl -fsSL https://fnm.vercel.app/install | zsh -s -- --install-dir "./.fnm" --skip-shell
+```
+
 ---
 
-### zsh as default shell
+### set zsh as default shell
 ```Shell
 chsh -s $(which zsh)
 ```
