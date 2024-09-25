@@ -15,6 +15,9 @@ marlonrichert/zsh-autocomplete kind:zsh
 # z (better cd command)
 rupa/z kind:zsh
 
+# zsh-autopair (automatically insert closing brackets and quotes)
+hlissner/zsh-autopair
+
 
 # THEME
 
