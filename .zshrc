@@ -26,8 +26,11 @@ antidote load
 ## TOOLS
 
 # FNM (Fast Node Manager)
-export PATH=/home/$USER/.fnm:$PATH
-eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy=recursive)"
+FNM_PATH="/home/$USER/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/$USER/.local/share/fnm:$PATH"
+  eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy=recursive)"
+fi
 # pnpm
 export PNPM_HOME="/home/dalailahner/.local/share/pnpm"
 case ":$PATH:" in
