@@ -28,6 +28,14 @@ git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote
 ```
 
 ```Shell
+sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
+```
+
+```Shell
+sudo apt update && sudo apt install fastfetch
+```
+
+```Shell
 curl -fsSL https://fnm.vercel.app/install | zsh -s -- --skip-shell
 ```
 
