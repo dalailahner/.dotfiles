@@ -32,7 +32,7 @@ if [ -d "$FNM_PATH" ]; then
   eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy=recursive)"
 fi
 # pnpm
-export PNPM_HOME="/home/dalailahner/.local/share/pnpm"
+export PNPM_HOME="/home/$USER/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
