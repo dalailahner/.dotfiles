@@ -42,3 +42,7 @@ esac
 alias ls="ls --color"
 # pnpm
 alias pn="pnpm"
+
+
+## STARTUP
+fastfetch
