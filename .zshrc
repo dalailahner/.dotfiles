@@ -43,6 +43,8 @@ esac
 
 # colored ls
 alias ls="ls --color"
+# interactive copy
+alias cp="cp -i"
 # pnpm
 alias pn="pnpm"
 
