@@ -2,73 +2,50 @@
 
 ---
 
-### install packages:
+### install yay:
 
 ```Shell
-sudo apt update && sudo apt upgrade -y
+sudo pacman -Syu
 ```
 
 ```Shell
-sudo apt install zsh curl git gh stow unzip
+sudo pacman -S --needed base-devel git
+```
+
+```Shell
+cd ~ && git clone https://aur.archlinux.org/yay.git
+```
+
+```Shell
+cd yay && makepkg -si
+```
+
+```Shell
+yay
+```
+
+### install packages:
+
+```Shell
+yay -S kitty zsh zoxide fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting micro stow unzip github-cli lazygit ttf-liberation ttf-hack-nerd fnm-bin pnpm fastfetch
 ```
 
 ---
 
 ### set zsh as default shell
 ```Shell
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
 ```
 
 open a new terminal and press "q" to the zsh warning
 
 ---
 
-### install tools
-
-```Shell
-git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote
-```
-
-```Shell
-sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
-```
-
-```Shell
-sudo apt update && sudo apt install fastfetch
-```
-
-```Shell
-curl -fsSL https://fnm.vercel.app/install | zsh -s -- --skip-shell
-```
-
-install a node version with fnm
-
-```Shell
-curl -fsSL https://get.pnpm.io/install.sh | sh -
-```
-
-```Shell
-pnpm install -g npm-check-updates
-```
-
 ### setup
 
 ```Shell
 gh auth login
 ```
-
-(WSL only:)
-
-```Shell
-git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
-```
-
-```Shell
-git config --global user.name "YOUR USERNAME"
-git config --global user.email "YOUR EMAIL"
-```
-
----
 
 ### clone
 
@@ -82,6 +59,20 @@ cd ~ && gh repo clone dalailahner/.dotfiles
 
 ```Shell
 cd ~/.dotfiles && stow .
+```
+
+---
+
+### install tools
+
+install a node version with fnm
+
+```Shell
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+```
+
+```Shell
+pnpm install -g npm-check-updates
 ```
 
 ---
