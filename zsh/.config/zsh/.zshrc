@@ -1,0 +1,136 @@
+### ZSH CONFIG
+
+
+## GENERAL
+
+# COMPLETION
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' file-sort name
+zstyle ':completion:*' format 'Suggesting: %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' ignore-parents parent ..
+zstyle ':completion:*' insert-unambiguous true
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' list-suffixes true
+zstyle ':completion:*' matcher-list '+m:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select=1
+zstyle ':completion:*' original false
+zstyle ':completion:*' preserve-prefix '//[^/]##/'
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' verbose true
+zstyle :compinstall filename "$ZDOTDIR/.zshrc"
+
+autoload -Uz compinit
+compinit -d ~/.cache/zsh/.zcompdump
+
+# HISTORY
+HISTFILE=~/.cache/zsh/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY
+setopt appendhistory
+
+# MISC
+unsetopt beep
+bindkey -e
+
+
+## KEYBINDINGS
+# create a zkbd compatible hash;
+# to add other keys to this hash, see: man 5 terminfo
+typeset -g -A key
+
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Insert]="${terminfo[kich1]}"
+key[Backspace]="${terminfo[kbs]}"
+key[Delete]="${terminfo[kdch1]}"
+key[Up]="${terminfo[kcuu1]}"
+key[Down]="${terminfo[kcud1]}"
+key[Left]="${terminfo[kcub1]}"
+key[Right]="${terminfo[kcuf1]}"
+key[PageUp]="${terminfo[kpp]}"
+key[PageDown]="${terminfo[knp]}"
+key[Shift-Tab]="${terminfo[kcbt]}"
+
+# setup key accordingly
+[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
+[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
+[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
+[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
+[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
+[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-history
+[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
+[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
+[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
+[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
+[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
+[[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
+
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+	autoload -Uz add-zle-hook-widget
+	function zle_application_mode_start { echoti smkx }
+	function zle_application_mode_stop { echoti rmkx }
+	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+fi
+
+
+## PLUGINS
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source <(fzf --zsh)
+eval "$(zoxide init zsh)"
+
+# Colorize man pages.
+export LESS_TERMCAP_md=${LESS_TERMCAP_md:-$fg_bold[blue]}   # start bold
+export LESS_TERMCAP_mb=${LESS_TERMCAP_mb:-$fg_bold[blue]}   # start blink
+export LESS_TERMCAP_so=${LESS_TERMCAP_so:-$'\e[00;47;30m'}  # start standout: white bg, black fg
+export LESS_TERMCAP_us=${LESS_TERMCAP_us:-$'\e[04;35m'}     # start underline: underline magenta
+export LESS_TERMCAP_se=${LESS_TERMCAP_se:-$reset_color}     # end standout
+export LESS_TERMCAP_ue=${LESS_TERMCAP_ue:-$reset_color}     # end underline
+export LESS_TERMCAP_me=${LESS_TERMCAP_me:-$reset_color}     # end bold/blink
+
+
+## THEME
+source "$ZDOTDIR/dalailahner.zsh-theme"
+
+
+## TOOLS
+
+# FNM (Fast Node Manager)
+FNM_PATH="/home/$USER/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/$USER/.local/share/fnm:$PATH"
+  eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy=recursive)"
+fi
+# pnpm
+export PNPM_HOME="/home/$USER/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+
+## ALIASES
+
+# colored ls
+alias -g ls='ls --color=auto'
+# colored grep
+alias -g grep='grep --color=auto'
+# colored diff
+alias -g diff='diff --color'
+# interactive copy
+alias -g cp='cp -i'
+# pnpm
+alias -g pn='pnpm'
+# lazygit
+alias -g lg='lazygit'
+
+
+## STARTUP
+fastfetch
