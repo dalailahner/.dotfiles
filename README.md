@@ -24,6 +24,8 @@ cd yay && makepkg -si
 yay
 ```
 
+---
+
 ### install packages:
 
 ```Shell
@@ -53,23 +55,31 @@ gh auth login
 cd ~ && gh repo clone dalailahner/.dotfiles
 ```
 
----
-
 ### init
 
 ```Shell
 cd ~/.dotfiles && stow .
 ```
 
+### kitty theme
+
+choose the dalailahner theme when running:
+
+```Shell
+kitten themes
+```
+
+and select "copy theme to current-theme.conf without changing the kitty.config"
+
+---
+
+reopen terminal or source the rc files
+
 ---
 
 ### install tools
 
 install a node version with fnm
-
-```Shell
-curl -fsSL https://get.pnpm.io/install.sh | sh -
-```
 
 ```Shell
 pnpm install -g npm-check-updates
