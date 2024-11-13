@@ -1,0 +1,19 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "",
+                "Name": "dalailahner"
+            }
+        ],
+        "Category": "",
+        "Description": "dalailahner dark for Plasma",
+        "EnabledByDefault": true,
+        "Id": "dalailahner",
+        "License": "GLWTS",
+        "Name": "dalailahner",
+        "Version": "3.0",
+        "Website": "https://github.com/dalailahner/.dotfiles/tree/arch"
+    },
+    "X-Plasma-API": "5.0"
+}
