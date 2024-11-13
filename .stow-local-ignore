@@ -22,3 +22,8 @@ _darcs
 ^/README.*
 ^/LICENSE*
 ^/COPYING
+
+.*\.kate-swp$   # kate temp files
+
+# No stowing, only manual implementation:
+SDDM-eucalyptus-drop
