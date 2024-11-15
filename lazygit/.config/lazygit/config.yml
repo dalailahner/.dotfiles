@@ -1,0 +1,13 @@
+gui:
+  nerdFontsVersion: "3"
+  commitAuthorShortLength: 5
+  authorColors:
+    dalailahner: red
+  branchColors:
+    main: red
+  theme:
+    activeBorderColor:
+      - red
+      - bold
+    selectedLineBgColor:
+      - red
