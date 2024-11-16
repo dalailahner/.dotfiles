@@ -35,6 +35,9 @@ setopt appendhistory
 unsetopt beep
 bindkey -e
 
+# ENVIRONMENT VARIABLES
+export EDITOR=/usr/bin/micro
+
 
 ## KEYBINDINGS
 # create a zkbd compatible hash;
@@ -94,6 +97,16 @@ export LESS_TERMCAP_us=${LESS_TERMCAP_us:-$'\e[04;35m'}     # start underline: u
 export LESS_TERMCAP_se=${LESS_TERMCAP_se:-$reset_color}     # end standout
 export LESS_TERMCAP_ue=${LESS_TERMCAP_ue:-$reset_color}     # end underline
 export LESS_TERMCAP_me=${LESS_TERMCAP_me:-$reset_color}     # end bold/blink
+
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 
 ## THEME

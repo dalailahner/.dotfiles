@@ -1,0 +1,134 @@
+[manager]
+
+cwd = { fg = "darkgray" }
+
+# Hovered
+hovered = { fg = "gray", bg = "red", bold = true }
+preview_hovered = { underline = true }
+
+# Find
+find_keyword = { fg = "red", italic = true }
+find_position = { fg = "red", bg = "gray", italic = true }
+
+# Marker
+marker_selected = { fg = "gray", bg = "green" }
+marker_copied = { fg = "darkgray", bg = "yellow" }
+marker_cut = { fg = "gray", bg = "red" }
+
+# Tab
+tab_active = { fg = "gray", bg = "red" }
+tab_inactive = { fg = "darkgray", bg = "red" }
+tab_width = 1
+
+# Border
+border_symbol = "│"
+border_style = { fg = "red" }
+
+# : }}}
+
+
+# : Status {{{
+
+[status]
+separator_open = ""
+separator_close = ""
+separator_style = { fg = "darkgray", bg = "darkgray" }
+
+# Mode
+mode_normal = { fg = "gray", bg = "red", bold = true }
+mode_select = { fg = "gray", bg = "green", bold = true }
+mode_unset = { fg = "black", bg = "yellow", bold = true }
+
+# Progress
+progress_label = { fg = "black", bold = true , bg = "gray" }
+progress_normal = { fg = "black", bg = "white" }
+progress_error = { fg = "black", bg = "red" }
+
+# Permissions
+permissions_t = { fg = "gray" }
+permissions_r = { fg = "yellow" }
+permissions_w = { fg = "red" }
+permissions_x = { fg = "#df7020" }
+permissions_s = { fg = "gray" }
+
+# : }}}
+
+
+# : Input {{{
+
+[input]
+border = { fg = "red" }
+title = {}
+value = {}
+selected = { reversed = true }
+
+# : }}}
+
+
+# : Select {{{
+
+[select]
+border = { fg = "red" }
+active = { fg = "red" }
+inactive = {}
+
+# : }}}
+
+
+# : Tasks {{{
+
+[tasks]
+border = { fg = "red" }
+title = {}
+hovered = { underline = true }
+
+# : }}}
+
+
+# : Which {{{
+
+[which]
+mask = { bg = "black" }
+cand = { fg = "cyan" }
+rest = { fg = "blue" }
+desc = { fg = "red" }
+separator = "  "
+separator_style = { fg = "red" }
+
+# : }}}
+
+
+# : Help {{{
+
+[help]
+on = { fg = "gray" }
+exec = { fg = "gray" }
+desc = { fg = "gray" }
+hovered = { bg = "red", bold = true }
+footer = { fg = "gray", bg = "red" }
+
+# : }}}
+
+
+# : File-specific styles {{{
+
+[filetype]
+
+rules = [
+	# Images
+	{ mime = "image/*", fg = "yellow" },
+
+	# Videos
+	{ mime = "video/*", fg = "yellow" },
+
+	# Audio
+	{ mime = "audio/*", fg = "blue" },
+
+	# Archives
+	{ mime = "application/{,g}zip", fg = "darkgray" },
+	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "darkgray" },
+
+	# Fallback
+	{ name = "*", fg = "gray" },
+	{ name = "*/", fg = "gray" },
+]

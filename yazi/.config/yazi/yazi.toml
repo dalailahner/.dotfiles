@@ -1,0 +1,6 @@
+[manager]
+ratio = [1, 2, 2]
+sort_by = "natural"
+sort_translit = true
+linemode = "size"
+show_hidden = true
