@@ -28,8 +28,19 @@ yay
 
 ### install packages:
 
+terminal
 ```Shell
-yay -S kitty zsh zoxide fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting micro stow unzip github-cli lazygit ttf-liberation ttf-hack-nerd fnm-bin pnpm fastfetch
+yay -S kitty zsh starship zoxide fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting micro
+```
+
+yazi
+```Shell
+yay -S yazi ffmpegthumbnailer p7zip jq poppler fd ripgrep imagemagick
+```
+
+tools
+```Shell
+yay -S stow unzip github-cli lazygit ttf-liberation ttf-hack-nerd fnm-bin pnpm fastfetch
 ```
 
 ---

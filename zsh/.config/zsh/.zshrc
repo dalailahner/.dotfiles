@@ -36,7 +36,8 @@ unsetopt beep
 bindkey -e
 
 # ENVIRONMENT VARIABLES
-export EDITOR=/usr/bin/micro
+export EDITOR=$(where micro | head -n 1)
+export VISUAL=$(where micro | head -n 1)
 
 
 ## KEYBINDINGS
@@ -90,15 +91,6 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
-# Colorize man pages.
-export LESS_TERMCAP_md=${LESS_TERMCAP_md:-$fg_bold[blue]}   # start bold
-export LESS_TERMCAP_mb=${LESS_TERMCAP_mb:-$fg_bold[blue]}   # start blink
-export LESS_TERMCAP_so=${LESS_TERMCAP_so:-$'\e[00;47;30m'}  # start standout: white bg, black fg
-export LESS_TERMCAP_us=${LESS_TERMCAP_us:-$'\e[04;35m'}     # start underline: underline magenta
-export LESS_TERMCAP_se=${LESS_TERMCAP_se:-$reset_color}     # end standout
-export LESS_TERMCAP_ue=${LESS_TERMCAP_ue:-$reset_color}     # end underline
-export LESS_TERMCAP_me=${LESS_TERMCAP_me:-$reset_color}     # end bold/blink
-
 # yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -128,17 +120,17 @@ esac
 ## ALIASES
 
 # colored ls
-alias -g ls='ls --color=auto'
+alias ls='ls --color=auto'
 # colored grep
-alias -g grep='grep --color=auto'
+alias grep='grep --color=auto'
 # colored diff
-alias -g diff='diff --color'
+alias diff='diff --color'
 # interactive copy
-alias -g cp='cp -i'
+alias cp='cp -i'
 # pnpm
-alias -g pn='pnpm'
+alias pn='pnpm'
 # lazygit
-alias -g lg='lazygit'
+alias lg='lazygit'
 
 
 ## STARTUP
