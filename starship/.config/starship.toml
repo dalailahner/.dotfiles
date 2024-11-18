@@ -51,5 +51,5 @@ format = '[ $symbol $branch ]($style)'
 
 [git_metrics]
 only_nonzero_diffs = true
-format = '[+$added ](fg:green bold bg:yellow)[-$deleted ](fg:red bold bg:yellow)'
+format = '([+$added ](fg:green bold bg:yellow))([-$deleted ](fg:red bold bg:yellow))'
 disabled = false
