@@ -88,6 +88,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 
 # Colorize man pages.
 export LESS_TERMCAP_md=${LESS_TERMCAP_md:-$fg_bold[blue]}   # start bold
@@ -107,11 +108,6 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
-
-
-## THEME
-source "$ZDOTDIR/dalailahner.zsh-theme"
-
 
 ## TOOLS
 
