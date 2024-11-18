@@ -4,12 +4,12 @@
 format = """
 [ ](bg:red)\
 $username\
-[](fg:red bg:#fd7020)\
+[](fg:red bg:#fd7020)\
 $directory\
-[](fg:#fd7020 bg:yellow)\
+[](fg:#fd7020 bg:yellow)\
 $git_branch\
 $git_metrics\
-[](fg:yellow)\
+[](fg:yellow)\
 [\n> ](fg:white)\
 """
 
@@ -51,5 +51,5 @@ format = '[ $symbol $branch ]($style)'
 
 [git_metrics]
 only_nonzero_diffs = true
-format = '[+$added](fg:green bold bg:yellow)[ ](fg:black bg:yellow)[-$deleted](fg:red bold bg:yellow)'
+format = '[+$added ](fg:green bold bg:yellow)[-$deleted ](fg:red bold bg:yellow)'
 disabled = false
