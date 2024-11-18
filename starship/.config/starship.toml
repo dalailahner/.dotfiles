@@ -1,5 +1,4 @@
-# Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
+# STARSHIP PROMPT
 
 format = """
 [ ](bg:red)\
@@ -13,11 +12,8 @@ $git_metrics\
 [\n> ](fg:white)\
 """
 
-# Disable the blank line at the start of the prompt
-# add_newline = false
+# modules
 
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
 [username]
 show_always = true
 style_user = "fg:black bold bg:red"
@@ -30,7 +26,6 @@ style = "fg:black bold bg:#fd7020"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
-
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
