@@ -1,0 +1,11 @@
+{
+    "colorscheme": "dalailahner",
+    "hlsearch": true,
+    "infobar": false,
+    "savecursor": true,
+    "saveundo": true,
+    "scrollbar": true,
+    "scrollmargin": 5,
+    "tabsize": 2,
+    "tabstospaces": true
+}
