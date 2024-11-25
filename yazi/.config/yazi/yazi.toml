@@ -1,5 +1,5 @@
 [manager]
-ratio = [1, 2, 2]
+ratio = [1, 4, 4]
 sort_by = "natural"
 sort_translit = true
 linemode = "size"
