@@ -20,10 +20,6 @@ tab_active = { fg = "gray", bg = "red" }
 tab_inactive = { fg = "darkgray", bg = "red" }
 tab_width = 1
 
-# Border
-border_symbol = "│"
-border_style = { fg = "red" }
-
 # : }}}
 
 
