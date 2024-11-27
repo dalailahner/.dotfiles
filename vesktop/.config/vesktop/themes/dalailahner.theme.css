@@ -69,6 +69,7 @@
 .container_fc4f04::after,
 [class^="chatContent_"] > [class^="messagesWrapper_"]::after,
 [class^="panels_"]::after,
+[class^='callContainer_']::after,
 [class^="form_"] [class^="channelTextArea_"]::after,
 .guilds_a4d4d9::after,
 [class^="membersWrap_"]::after,
