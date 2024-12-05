@@ -1,0 +1,13 @@
+1) configure like one of those:
+
+  fastfetch -c examples/6.jsonc
+  fastfetch -c examples/7.jsonc
+  fastfetch -c examples/10.jsonc
+  fastfetch -c examples/17.jsonc
+  fastfetch -c examples/24.jsonc
+
+2) adjust padding of image
+
+3) maybe adjust blood color to red terminal color
+
+4) export image in true display size
