@@ -3,7 +3,8 @@
   "logo": {
     "type": "kitty-direct",
     "source": "~/.config/fastfetch/himeno-by-雨様.png",
-    "width": 60
+    "padding": { "top": 1, "right": 1, "left": 0 },
+    "width": 75
   },
   "display": {
     "separator": " │ ",
@@ -11,72 +12,132 @@
       "keys": "red",
       "separator": "red"
     },
-    "constants": ["───────────────────────────────────────────────────────────────────────────", "│\u001b[75C│\u001b[75D"]
+    "constants": ["│\u001b[75C│\u001b[75D"]
   },
   "modules": [
     {
-      "format": "{#31}╭{$1}╮\u001b[76D {user-name-colored}{at-symbol-colored}{host-name-colored} ",
+      "format": "{#31}╭─ {user-name}{#37}@{#36}{host-name} {#31}───────────────────────────────────────────────────╮",
       "type": "title"
     },
     {
-      "key": "{$2}{#31} kernel   ",
-      "type": "kernel"
+      "key": "{$1}{#32}Board      ",
+      "type": "board"
     },
     {
-      "key": "{$2}{#32}󰅐 uptime   ",
-      "type": "uptime"
+      "key": "{$1}{#32}CPU        ",
+      "type": "cpu"
     },
     {
-      "key": "{$2}{#33}{icon} distro   ",
-      "type": "os"
+      "key": "{$1}{#32}GPU        ",
+      "type": "gpu",
+      "hideType": "integrated"
     },
     {
-      "key": "{$2}{#34}󰇄 desktop  ",
-      "type": "de"
+      "key": "{$1}{#32}RAM        ",
+      "type": "memory"
     },
     {
-      "key": "{$2}{#35} term     ",
-      "type": "terminal"
+      "key": "{$1}{#32}Swap       ",
+      "type": "swap"
     },
     {
-      "key": "{$2}{#36} shell    ",
-      "type": "shell"
-    },
-    {
-      "key": "{$2}{#35}󰍛 cpu      ",
-      "type": "cpu",
-      "showPeCoreCount": true,
-      "temp": true
-    },
-    {
-      "key": "{$2}{#34}󰍛 gpu      ",
-      "type": "gpu"
-    },
-    {
-      "key": "{$2}{#33}󰉉 disk     ",
+      "key": "{$1}{#32}Disk       ",
       "type": "disk",
       "folders": "/"
     },
     {
-      "key": "{$2}{#32} memory   ",
-      "type": "memory"
+      "key": "{$1}{#32}Display    ",
+      "type": "display"
     },
     {
-      "key": "{$2}{#31}󰩟 network  ",
-      "type": "localip",
-      "format": "{ipv4} ({ifname})"
-    },
-    {
-      "format": "{#31}├{$1}┤",
+      "format": "{#31}{$1}            │",
       "type": "custom"
     },
     {
-      "key": "{$2}{#39} colors   ",
-      "type": "colors",
-      "symbol": "block"
+      "key": "{$1}{#33}Kernel     ",
+      "type": "kernel"
     },
     {
-      "format": "{#31}╰{$1}╯",
+      "key": "{$1}{#33}InitSystem ",
+      "type": "initsystem"
+    },
+    {
+      "key": "{$1}{#33}LM         ",
+      "type": "lm"
+    },
+    {
+      "key": "{$1}{#33}DE         ",
+      "type": "de"
+    },
+    {
+      "key": "{$1}{#33}WM         ",
+      "type": "wm"
+    },
+    {
+      "key": "{$1}{#33}Packages   ",
+      "type": "packages"
+    },
+    {
+      "format": "{#31}{$1}            │",
+      "type": "custom"
+    },
+    {
+      "key": "{$1}{#34}Theme      ",
+      "type": "theme",
+      "format": "{1}"
+    },
+    {
+      "key": "{$1}{#34}WM Theme   ",
+      "type": "wmtheme"
+    },
+    {
+      "key": "{$1}{#34}Icons      ",
+      "type": "icons",
+      "format": "{1}"
+    },
+    {
+      "key": "{$1}{#34}Cursor     ",
+      "type": "cursor"
+    },
+    {
+      "key": "{$1}{#34}Font       ",
+      "type": "font",
+      "format": "{1}"
+    },
+    {
+      "format": "{#31}{$1}            │",
+      "type": "custom"
+    },
+    {
+      "key": "{$1}{#35}Terminal   ",
+      "type": "terminal"
+    },
+    {
+      "key": "{$1}{#35}Font       ",
+      "type": "terminalfont"
+    },
+    {
+      "key": "{$1}{#35}Shell      ",
+      "type": "shell"
+    },
+    {
+      "key": "{$1}{#35}Editor     ",
+      "type": "editor"
+    },
+    {
+      "format": "{#31}├─────────────┴─────────────────────────────────────────────────────────────┤",
+      "type": "custom"
+    },
+    {
+      "format": "{#31}{$1}{#40}  {#41}  {#42}  {#43}  {#44}  {#45}  {#46}  {#47}  {#49}{#31} Terminal img by 雨様 (@Yu_Yang6)",
+      "type": "custom"
+    },
+    {
+      "format": "{#31}{$1}{#100}  {#101}  {#102}  {#103}  {#104}  {#105}  {#106}  {#107}  {#49}{#31} Wallpaper img by xxx",
+      "type": "custom"
+    },
+    {
+      "format": "{#31}╰───────────────────────────────────────────────────────────────────────────╯",
       "type": "custom"
     }
   ]
