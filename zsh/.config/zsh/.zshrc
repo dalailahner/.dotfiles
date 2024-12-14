@@ -134,5 +134,7 @@ alias pn='pnpm'
 alias lg='lazygit'
 
 
-## STARTUP
-fastfetch
+## STARTUP (not in vscode)
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+  fastfetch
+fi
