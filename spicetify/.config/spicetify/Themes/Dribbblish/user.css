@@ -61,6 +61,7 @@ body {
 }
 
 .Root__main-view {
+    padding-right: 10px !important;
     border-radius: var(--corner-radius) var(--corner-radius) 0 0 !important;
     grid-area: main-view !important;
 }
@@ -89,8 +90,8 @@ body {
 }
 
 .main-nowPlayingBar-nowPlayingBar {
+    padding: 0 1em !important;
     position: relative;
-    padding-inline-end: 16px !important;
 }
 
 .progress-bar {
@@ -139,18 +140,19 @@ body {
 
 /* custom dynamic prog tooltip */
 .playback-bar .prog-tooltip {
-    position: absolute;
+    padding: 0.5em 1em;
     min-width: 100px;
     width: unset;
-    height: 25px;
+    height: fit-content;
+    position: absolute;
     top: -35px;
-    padding: 0 5px;
     border-radius: 4px;
-    text-align: center;
     color: var(--spice-text);
+    font-weight: 700;
+    text-align: center;
     background-color: var(--spice-button);
     opacity: 0;
-    transition: opacity 0.2s linear, left 0.2s linear;
+    transition: opacity 0.2s linear, left 0s linear;
 }
 
 .playback-bar:hover .prog-tooltip {
@@ -488,7 +490,9 @@ li>div::after {
 .Root__right-sidebar .main-nowPlayingView-playNext {
     color: var(--spice-sidebar-text);
 }
-
+.Root__right-sidebar .main-nowPlayingView-contextItemInfo::before {
+    background: none !important;
+}
 .main-nowPlayingView-content {
     --text-subdued: var(--spice-sidebar-text);
 }
