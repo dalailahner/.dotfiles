@@ -15,5 +15,10 @@
     "rules": {
       "recommended": true
     }
+  },
+  "css": {
+    "linter": {
+      "enabled": false
+    }
   }
 }
