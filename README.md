@@ -60,6 +60,10 @@ open a new terminal and press "q" to the zsh warning
 gh auth login
 ```
 
+```Shell
+git config --global rebase.updateRefs true
+```
+
 ### clone
 
 ```Shell
@@ -90,10 +94,12 @@ reopen terminal or source the rc files
 
 ### install tools
 
-install a node version with fnm
+```Shell
+fnm install --latest
+```
 
 ```Shell
-pnpm install -g npm-check-updates
+pnpm install -g npm-check-updates @biomejs/biome
 ```
 
 ---
