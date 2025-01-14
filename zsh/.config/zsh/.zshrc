@@ -4,6 +4,10 @@
 ## GENERAL
 
 # COMPLETION
+autoload -Uz compinit
+compinit -d ~/.cache/zsh/.zcompdump
+
+zstyle :compinstall filename "$ZDOTDIR/.zshrc"
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' format 'Suggesting: %d'
@@ -19,10 +23,6 @@ zstyle ':completion:*' original false
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' verbose true
-zstyle :compinstall filename "$ZDOTDIR/.zshrc"
-
-autoload -Uz compinit
-compinit -d ~/.cache/zsh/.zcompdump
 
 # HISTORY
 HISTFILE=~/.cache/zsh/.zsh_history
@@ -57,6 +57,8 @@ key[Right]="${terminfo[kcuf1]}"
 key[PageUp]="${terminfo[kpp]}"
 key[PageDown]="${terminfo[knp]}"
 key[Shift-Tab]="${terminfo[kcbt]}"
+key[Control-Left]="${terminfo[kLFT5]}"
+key[Control-Right]="${terminfo[kRIT5]}"
 
 # setup key accordingly
 [[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
@@ -71,6 +73,8 @@ key[Shift-Tab]="${terminfo[kcbt]}"
 [[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
 [[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
 [[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
+[[ -n "${key[Control-Left]}"  ]] && bindkey -- "${key[Control-Left]}"  backward-word
+[[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
 
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
@@ -84,7 +88,7 @@ fi
 
 
 ## PLUGINS
-autoload zmv
+autoload -Uz zmv
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
