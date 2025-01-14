@@ -5,8 +5,8 @@
 
 # history
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=9000
+SAVEHIST=9000
 # no beep
 unsetopt beep
 # line editing
@@ -49,5 +49,7 @@ alias cp="cp -i"
 alias pn="pnpm"
 
 
-## STARTUP
-fastfetch
+## STARTUP (not in vscode)
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+  fastfetch
+fi
