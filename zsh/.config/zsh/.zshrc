@@ -1,13 +1,21 @@
 ### ZSH CONFIG
 
 
+## ENVIRONMENT VARIABLES
+export EDITOR=$(where micro | head -n 1)
+export VISUAL=$(where micro | head -n 1)
+
+
 ## GENERAL
 
-# COMPLETION
-autoload -Uz compinit
-compinit -d ~/.cache/zsh/.zcompdump
+# COMPLETIONS
 
-zstyle :compinstall filename "$ZDOTDIR/.zshrc"
+# commented out because zsh-autocomplete said so:
+#autoload -Uz compinit
+#compinit -d ~/.cache/zsh/.zcompdump
+# pass the argument to compinit tho:
+zstyle '*:compinit' arguments -d ~/.cache/zsh/.zcompdump
+
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' format 'Suggesting: %d'
@@ -23,6 +31,7 @@ zstyle ':completion:*' original false
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' verbose true
+zstyle :compinstall filename "$ZDOTDIR/.zshrc"
 
 # HISTORY
 HISTFILE=~/.cache/zsh/.zsh_history
@@ -34,10 +43,6 @@ setopt appendhistory
 # MISC
 unsetopt beep
 bindkey -e
-
-# ENVIRONMENT VARIABLES
-export EDITOR=$(where micro | head -n 1)
-export VISUAL=$(where micro | head -n 1)
 
 
 ## KEYBINDINGS
@@ -96,6 +101,9 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
+
+## TOOLS
+
 # yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -106,14 +114,13 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-## TOOLS
-
 # FNM (Fast Node Manager)
 FNM_PATH="/home/$USER/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="/home/$USER/.local/share/fnm:$PATH"
   eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy=recursive)"
 fi
+
 # pnpm
 export PNPM_HOME="/home/$USER/.local/share/pnpm"
 case ":$PATH:" in
