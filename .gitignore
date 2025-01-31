@@ -1,3 +1,7 @@
+### MAIN ###
+# Yazi plugins
+**/yazi/plugins
+
 # Created by https://www.toptal.com/developers/gitignore/api/linux,macos,windows,visualstudiocode,zsh,vim,emacs
 # Edit at https://www.toptal.com/developers/gitignore?templates=linux,macos,windows,visualstudiocode,zsh,vim,emacs
 
