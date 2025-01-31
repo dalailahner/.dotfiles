@@ -3,21 +3,22 @@
 cwd = { fg = "darkgray" }
 
 # Hovered
-hovered = { fg = "gray", bg = "red", bold = true }
+hovered = { fg = "white", bg = "red" }
 preview_hovered = { underline = true }
 
 # Find
-find_keyword = { fg = "red", italic = true }
-find_position = { fg = "red", bg = "gray", italic = true }
+find_keyword = { fg = "white", bold = true, italic = true }
+find_position = { fg = "red", bg = "white", italic = true }
 
 # Marker
-marker_selected = { fg = "gray", bg = "green" }
-marker_copied = { fg = "darkgray", bg = "yellow" }
-marker_cut = { fg = "gray", bg = "red" }
+marker_copied = { fg = "white", bg = "green" }
+marker_cut = { fg = "white", bg = "red" }
+marker_marked = { fg = "white", bg = "blue" }
+marker_selected = { fg = "white", bg = "white" }
 
 # Tab
-tab_active = { fg = "gray", bg = "red" }
-tab_inactive = { fg = "darkgray", bg = "red" }
+tab_active = { fg = "white", bg = "red" }
+tab_inactive = { fg = "white", bg = "darkgray" }
 tab_width = 1
 
 # : }}}
@@ -27,25 +28,27 @@ tab_width = 1
 
 [status]
 separator_open = ""
-separator_close = ""
-separator_style = { fg = "darkgray", bg = "darkgray" }
+separator_close = ""
 
 # Mode
-mode_normal = { fg = "gray", bg = "red", bold = true }
-mode_select = { fg = "gray", bg = "green", bold = true }
-mode_unset = { fg = "black", bg = "yellow", bold = true }
+normal_main = { fg = "white", bg = "red", bold = true }
+normal_alt = { fg = "red", bg = "white" }
+select_main = { fg = "white", bg = "green", bold = true }
+select_alt = { fg = "green", bg = "white" }
+unset_main = { fg = "black", bg = "yellow", bold = true }
+unset_alt = { fg = "yellow", bg = "white" }
 
 # Progress
-progress_label = { fg = "black", bold = true , bg = "gray" }
+progress_label = { fg = "darkgray", bold = true , bg = "white" }
 progress_normal = { fg = "black", bg = "white" }
 progress_error = { fg = "black", bg = "red" }
 
 # Permissions
-permissions_t = { fg = "gray" }
-permissions_r = { fg = "yellow" }
-permissions_w = { fg = "red" }
-permissions_x = { fg = "#df7020" }
-permissions_s = { fg = "gray" }
+perm_type = { fg = "white" }
+perm_read = { fg = "yellow" }
+perm_write = { fg = "red" }
+perm_exec = { fg = "#df7020" }
+perm_sep = { fg = "darkgray" }
 
 # : }}}
 
@@ -97,11 +100,11 @@ separator_style = { fg = "red" }
 # : Help {{{
 
 [help]
-on = { fg = "gray" }
-exec = { fg = "gray" }
-desc = { fg = "gray" }
-hovered = { bg = "red", bold = true }
-footer = { fg = "gray", bg = "red" }
+on = { fg = "white" }
+exec = { fg = "white" }
+desc = { fg = "white" }
+hovered = { fg = "white", bg = "red", bold = true }
+footer = { fg = "white", bg = "darkgray" }
 
 # : }}}
 
@@ -111,6 +114,7 @@ footer = { fg = "gray", bg = "red" }
 [filetype]
 
 rules = [
+	
 	# Images
 	{ mime = "image/*", fg = "yellow" },
 
@@ -121,10 +125,34 @@ rules = [
 	{ mime = "audio/*", fg = "blue" },
 
 	# Archives
-	{ mime = "application/{,g}zip", fg = "darkgray" },
-	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "darkgray" },
+	{ mime = "application/{,g}zip", fg = "darkgray", bold = true },
+	{ mime = "application/{tar,bzip*,7z-compressed,xz,rar}", fg = "darkgray", bold = true },
 
-	# Fallback
-	{ name = "*", fg = "gray" },
-	{ name = "*/", fg = "gray" },
+	# Link
+	{ name = "*", is = "link", fg = "cyan", underline = true },
+
+	# Orphan
+	{ name = "*", is = "orphan", fg = "white", bg = "red", bold = true },
+
+	# FIFO
+	{ name = "*", is = "fifo", fg = "yellow", bg = "black" },
+
+	# Socket
+	{ name = "*", is = "sock", fg = "magenta", bold = true },
+
+	# Block device
+	{ name = "*", is = "block", fg = "red", bg = "black", bold = true },
+
+	# Char device
+	{ name = "*", is = "char", fg = "red", bg = "black", bold = true },
+
+	# Exectuable
+	{ name = "*", is = "exec", fg = "red", bold = true },
+
+	# Sticky
+	{ name = "*", is = "sticky", fg = "black", bg = "green" },
+	
+	# Directory
+	{ name = "*/", fg = "green", bold = true },
+
 ]

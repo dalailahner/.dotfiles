@@ -4,7 +4,7 @@
 ## ENVIRONMENT VARIABLES
 export EDITOR=$(where micro | head -n 1)
 export VISUAL=$(where micro | head -n 1)
-
+eval `dircolors --bourne-shell ~/.config/zsh/.dir_colors`
 
 ## GENERAL
 
@@ -149,3 +149,4 @@ alias lg='lazygit'
 if [[ "$TERM_PROGRAM" != "vscode" ]]; then
   fastfetch
 fi
+
