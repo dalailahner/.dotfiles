@@ -1,0 +1,212 @@
+# ===================================================================
+# color definitions for the ls command
+# ===================================================================
+# Below are TERM or COLORTERM entries, which can be glob patterns, which
+# restrict following config to systems with matching environment variables.
+COLORTERM ?*
+TERM Eterm
+TERM ansi
+TERM *color*
+TERM con[0-9]*x[0-9]*
+TERM cons25
+TERM console
+TERM cygwin
+TERM *direct*
+TERM dtterm
+TERM gnome
+TERM hurd
+TERM jfbterm
+TERM konsole
+TERM kterm
+TERM linux
+TERM linux-c
+TERM mlterm
+TERM putty
+TERM rxvt*
+TERM screen*
+TERM st
+TERM terminator
+TERM tmux*
+TERM vt100
+TERM xterm*
+# ===================================================================
+# COLORS
+# ===================================================================
+# Below are the color init strings for the basic file types.
+# One can use codes for 256 or more colors supported by modern terminals.
+# The default color codes use the capabilities of an 8 color terminal
+# with some additional attributes as per the following codes:
+# Attribute codes:
+# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
+# Text color codes:
+# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
+# Background color codes:
+# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
+#NORMAL 00 # no color code at all
+#FILE 00 # regular file: use no color at all
+RESET 0
+DIR 01;32
+LINK 04;36
+MULTIHARDLINK 01;04;36 # regular file with more than one link
+FIFO 40;33
+SOCK 01;35
+DOOR 01;35
+BLK 01;31;40
+CHR 01;31;40
+ORPHAN 01;37;41
+MISSING 01;37;41
+SETUID 30;46
+SETGID 30;44
+CAPABILITY 00 # regular file with capability (very expensive to lookup)
+STICKY_OTHER_WRITABLE 30;43
+OTHER_WRITABLE 90;43
+STICKY 30;42
+EXEC 01;31
+# ===================================================================
+# File extension attributes
+# ===================================================================
+# List any file extensions like '.gz' or '.tar' that you would like ls
+# to color below. Put the suffix, a space, and the color init string.
+# (and any comments you want to add after a '#').
+# Suffixes are matched case insensitively, but if you define different
+# init strings for separate cases, those will be honored.
+.7z 1;90
+.ace 1;90
+.alz 1;90
+.apk 1;90
+.arc 1;90
+.arj 1;90
+.bz 1;90
+.bz2 1;90
+.cab 1;90
+.cpio 1;90
+.crate 1;90
+.deb 1;90
+.drpm 1;90
+.dwm 1;90
+.dz 1;90
+.ear 1;90
+.egg 1;90
+.esd 1;90
+.gz 1;90
+.jar 1;90
+.lha 1;90
+.lrz 1;90
+.lz 1;90
+.lz4 1;90
+.lzh 1;90
+.lzma 1;90
+.lzo 1;90
+.pyz 1;90
+.rar 1;90
+.rpm 1;90
+.rz 1;90
+.sar 1;90
+.swm 1;90
+.t7z 1;90
+.tar 1;90
+.taz 1;90
+.tbz 1;90
+.tbz2 1;90
+.tgz 1;90
+.tlz 1;90
+.txz 1;90
+.tz 1;90
+.tzo 1;90
+.tzst 1;90
+.udeb 1;90
+.war 1;90
+.whl 1;90
+.wim 1;90
+.xz 1;90
+.z 1;90
+.zip 1;90
+.zoo 1;90
+.zst 1;90
+.avif 33
+.jpg 33
+.jpeg 33
+.mjpg 33
+.mjpeg 33
+.gif 33
+.bmp 33
+.pbm 33
+.pgm 33
+.ppm 33
+.tga 33
+.xbm 33
+.xpm 33
+.tif 33
+.tiff 33
+.png 33
+.svg 33
+.svgz 33
+.mng 33
+.pcx 33
+.mov 33
+.mpg 33
+.mpeg 33
+.m2v 33
+.mkv 33
+.webm 33
+.webp 33
+.ogm 33
+.mp4 33
+.m4v 33
+.mp4v 33
+.vob 33
+.qt 33
+.nuv 33
+.wmv 33
+.asf 33
+.rm 33
+.rmvb 33
+.flc 33
+.avi 33
+.fli 33
+.flv 33
+.gl 33
+.dl 33
+.xcf 33
+.xwd 33
+.yuv 33
+.cgm 33
+.emf 33
+.ogv 33
+.ogx 33
+.aac 34
+.au 34
+.flac 34
+.m4a 34
+.mid 34
+.midi 34
+.mka 34
+.mp3 34
+.mpc 34
+.ogg 34
+.ra 34
+.wav 34
+.oga 34
+.opus 34
+.spx 34
+.xspf 34
+.~ 90
+.# 90
+.bak 90
+.crdownload 90
+.dpkg-dist 90
+.dpkg-new 90
+.dpkg-old 90
+.dpkg-tmp 90
+.old 90
+.orig 90
+.part 90
+.rej 90
+.rpmnew 90
+.rpmorig 90
+.rpmsave 90
+.swp 90
+.tmp 90
+.ucf-dist 90
+.ucf-new 90
+.ucf-old 90
