@@ -17,7 +17,7 @@
     ],
     "declaration-block-no-redundant-longhand-properties": [true, { "ignoreShorthands": ["flex-flow"] }],
     "color-named": "never",
-    "declaration-no-important": true,
+    "declaration-property-value-no-unknown": [true, { "ignoreProperties": { "/.+/": "/calc-size\\(.+\\)/" } }],
     "plugin/no-unsupported-browser-features": [
       true,
       {
@@ -51,7 +51,10 @@
         },
         "rules"
       ],
-      { "unspecified": "bottom", "severity": "warning" }
+      {
+        "unspecified": "bottom",
+        "severity": "warning"
+      }
     ],
     "order/properties-order": [
       [
