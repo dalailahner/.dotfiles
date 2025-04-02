@@ -99,7 +99,7 @@ fnm install --latest
 ```
 
 ```Shell
-pnpm install -g npm-check-updates @biomejs/biome
+pnpm install -g @biomejs/biome stylelint stylelint-config-standard stylelint-order stylelint-no-unsupported-browser-features
 ```
 
 ---
