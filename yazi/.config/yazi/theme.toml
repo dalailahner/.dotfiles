@@ -27,8 +27,8 @@ tab_width = 1
 # : Status {{{
 
 [status]
-separator_open = ""
-separator_close = ""
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
 # Mode
 normal_main = { fg = "white", bg = "red", bold = true }
