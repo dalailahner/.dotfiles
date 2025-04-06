@@ -272,6 +272,7 @@
         "background-position-y",
         "background-clip",
         "background-repeat",
+        "backdrop-filter",
         "overflow",
         "overflow-x",
         "overflow-y",
