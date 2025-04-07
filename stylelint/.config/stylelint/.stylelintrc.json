@@ -22,7 +22,7 @@
       true,
       {
         "browsers": ["> 0.5%", "last 3 versions", "not dead", "not ie > 0", "not samsung > 0", "not opera > 0", "not op_mob > 0", "not op_mini all", "not kaios > 0", "not baidu > 0", "not and_qq > 0", "not android > 0", "not and_uc > 0"],
-        "ignore": ["css-overflow", "css-lch-lab", "css-nesting", "css-masks", "intrinsic-width", "css-media-range-syntax", "css-touch-action", "css3-cursors-grab", "css-scrollbar", "css-resize"],
+        "ignore": ["css-overflow", "css-lch-lab", "css-nesting", "css-masks", "intrinsic-width", "css-media-range-syntax", "css-touch-action", "css-scrollbar", "css-resize", "css3-cursors"],
         "severity": "warning"
       }
     ],
