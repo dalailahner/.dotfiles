@@ -1,3 +1,9 @@
+# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
+# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+# : Manager {{{
+
 [manager]
 
 cwd = { fg = "darkgray" }
@@ -24,24 +30,29 @@ tab_width = 1
 # : }}}
 
 
-# : Status {{{
+# : Mode {{{
 
-[status]
-sep_left = { open = "", close = "" }
-sep_right = { open = "", close = "" }
-
-# Mode
+[mode]
 normal_main = { fg = "white", bg = "red", bold = true }
 normal_alt = { fg = "red", bg = "white" }
+
+# Select mode
 select_main = { fg = "white", bg = "green", bold = true }
 select_alt = { fg = "green", bg = "white" }
+
+# Unset mode
 unset_main = { fg = "black", bg = "yellow", bold = true }
 unset_alt = { fg = "yellow", bg = "white" }
 
-# Progress
-progress_label = { fg = "darkgray", bold = true , bg = "white" }
-progress_normal = { fg = "black", bg = "white" }
-progress_error = { fg = "black", bg = "red" }
+# : }}}
+
+
+# : Status bar {{{
+
+[status]
+overall   = { fg = "white", bg = "black" }
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
 # Permissions
 perm_type = { fg = "white" }
@@ -50,36 +61,10 @@ perm_write = { fg = "red" }
 perm_exec = { fg = "#df7020" }
 perm_sep = { fg = "darkgray" }
 
-# : }}}
-
-
-# : Input {{{
-
-[input]
-border = { fg = "red" }
-title = {}
-value = {}
-selected = { reversed = true }
-
-# : }}}
-
-
-# : Select {{{
-
-[select]
-border = { fg = "red" }
-active = { fg = "red" }
-inactive = {}
-
-# : }}}
-
-
-# : Tasks {{{
-
-[tasks]
-border = { fg = "red" }
-title = {}
-hovered = { underline = true }
+# Progress
+progress_label = { fg = "darkgray", bold = true , bg = "white" }
+progress_normal = { fg = "black", bg = "white" }
+progress_error = { fg = "black", bg = "red" }
 
 # : }}}
 
@@ -97,11 +82,42 @@ separator_style = { fg = "red" }
 # : }}}
 
 
+# : Picker {{{
+
+[pick]
+border = { fg = "red" }
+active = { fg = "red" }
+inactive = {}
+
+# : }}}
+
+
+# : Input {{{
+
+[input]
+border = { fg = "red" }
+title = {}
+value = {}
+selected = { reversed = true }
+
+# : }}}
+
+
+# : Tasks {{{
+
+[tasks]
+border = { fg = "red" }
+title = {}
+hovered = { underline = true }
+
+# : }}}
+
+
 # : Help {{{
 
 [help]
 on = { fg = "white" }
-exec = { fg = "white" }
+run = { fg = "white" }
 desc = { fg = "white" }
 hovered = { fg = "white", bg = "red", bold = true }
 footer = { fg = "white", bg = "darkgray" }
