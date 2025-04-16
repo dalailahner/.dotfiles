@@ -35,6 +35,7 @@ yay -S kitty zsh starship zoxide fzf zsh-autocomplete zsh-autosuggestions zsh-sy
 
 yazi
 ```Shell
+# check if the dependencies are still correct
 yay -S yazi ffmpegthumbnailer p7zip jq poppler fd ripgrep imagemagick
 ```
 
