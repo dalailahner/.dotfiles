@@ -6,9 +6,7 @@ export EDITOR=$(where micro | head -n 1)
 export VISUAL=$(where micro | head -n 1)
 eval `dircolors --bourne-shell ~/.config/zsh/.dir_colors`
 
-## GENERAL
-
-# COMPLETIONS
+## COMPLETIONS
 
 # commented out because zsh-autocomplete said so:
 #autoload -Uz compinit
@@ -33,16 +31,18 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' verbose true
 zstyle :compinstall filename "$ZDOTDIR/.zshrc"
 
-# HISTORY
+## HISTORY
 HISTFILE=~/.cache/zsh/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt SHARE_HISTORY
 setopt appendhistory
 
-# MISC
+## MISC SETTINGS
 unsetopt beep
 bindkey -e
+# fix for zsh-autocomplete
+setopt interactive_comments
 
 
 ## KEYBINDINGS
@@ -114,7 +114,7 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# FNM (Fast Node Manager)
+# fnm
 FNM_PATH="/home/$USER/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="/home/$USER/.local/share/fnm:$PATH"
