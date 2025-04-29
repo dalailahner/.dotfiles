@@ -1,6 +1,7 @@
 # STARSHIP PROMPT
 
 format = """
+[](fg:red)\
 [ ](bg:red)\
 $username\
 [](fg:red bg:#fd7020)\
