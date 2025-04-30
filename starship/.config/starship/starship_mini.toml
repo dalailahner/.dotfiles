@@ -1,0 +1,48 @@
+# STARSHIP PROMPT
+
+format = """
+$username\
+[ at ](fg:black)\
+$directory\
+[ in ](fg:black)\
+$git_branch\
+$git_metrics\
+[\n> ](fg:white)\
+"""
+
+# modules
+
+[username]
+show_always = true
+style_user = "fg:white bold"
+style_root = "fg:red"
+format = '[$user]($style)'
+disabled = false
+
+[directory]
+style = "fg:white bold"
+format = "[$path]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = " 󰈙 "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important 󰈙 " = " 󰈙 "
+
+[git_branch]
+symbol = ""
+style = "fg:white bold"
+format = '[$symbol $branch]($style)'
+
+[git_metrics]
+only_nonzero_diffs = true
+format = '([ +$added ](fg:green bold))([ -$deleted ](fg:red bold))'
+disabled = false

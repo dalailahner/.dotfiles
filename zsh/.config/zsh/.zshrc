@@ -5,6 +5,11 @@
 export EDITOR=$(where micro | head -n 1)
 export VISUAL=$(where micro | head -n 1)
 eval `dircolors --bourne-shell ~/.config/zsh/.dir_colors`
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+  export STARSHIP_CONFIG="$HOME/.config/starship/starship_default.toml"
+else
+  export STARSHIP_CONFIG="$HOME/.config/starship/starship_mini.toml"
+fi
 
 ## COMPLETIONS
 
