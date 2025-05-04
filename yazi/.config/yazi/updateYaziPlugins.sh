@@ -2,34 +2,36 @@
 
 function check_online
 {
-    nmcli general | grep "^connected" >/dev/null && echo 1 || echo 0
+  nmcli general | grep "^connected" >/dev/null && echo 1 || echo 0
 }
 
-# Initial check to see if we are online
-IS_ONLINE=check_online
-
-# How many times we should check if we're online - this prevents infinite looping
+# initial check to see if we are online
+IS_ONLINE=$(check_online)
+# init variable for loop
+CHECKS=0
 MAX_CHECKS=5
 
-# Initial starting value for checks
-CHECKS=0
-
-# Loop while we're not online.
+# loop check for online connectivity
 while [ $IS_ONLINE -eq 0 ]; do
-    sleep 10;
+  sleep 10;
 
-    IS_ONLINE=check_online
+  IS_ONLINE=$(check_online)
 
-    CHECKS=$[ $CHECKS + 1 ]
-    if [ $CHECKS -gt $MAX_CHECKS ]; then
-        break
-    fi
+  CHECKS=$[ $CHECKS + 1 ]
+  if [ $CHECKS -gt $MAX_CHECKS ]; then
+    break
+  fi
 done
 
 if [ $IS_ONLINE -eq 0 ]; then
-    # We never were able to get online. Kill script.
     exit 1
 fi
 
-# Now we enter our normal code here. The above was just for online checking
-/usr/bin/ya pack --upgrade >> /var/log/yaziPluginUpdate.log 2>&1
+# apparently we are online so run:
+LOG_FILE="/var/log/yaziPluginUpdate.log"
+echo "------------------------" >> $LOG_FILE
+echo $(date +%s) >> $LOG_FILE
+echo "updating packages..." >> $LOG_FILE
+/usr/bin/ya pack --upgrade >> $LOG_FILE 2>&1
+echo "finished updating" >> $LOG_FILE
+echo "------------------------" >> $LOG_FILE
