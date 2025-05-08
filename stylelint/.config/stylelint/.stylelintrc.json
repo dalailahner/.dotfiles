@@ -2,6 +2,9 @@
   "extends": "stylelint-config-standard",
   "plugins": ["stylelint-order", "stylelint-no-unsupported-browser-features"],
   "rules": {
+    "container-name-pattern": null,
+    "keyframes-name-pattern": null,
+    "value-keyword-case": null,
     "custom-property-pattern": null,
     "selector-id-pattern": null,
     "selector-class-pattern": null,
@@ -21,8 +24,8 @@
     "plugin/no-unsupported-browser-features": [
       true,
       {
-        "browsers": ["> 0.5%", "last 3 versions", "not dead", "not ie > 0", "not samsung > 0", "not opera > 0", "not op_mob > 0", "not op_mini all", "not kaios > 0", "not baidu > 0", "not and_qq > 0", "not android > 0", "not and_uc > 0"],
-        "ignore": ["css-clip-path", "css-masks", "css-lch-lab", "css-nesting", "intrinsic-width", "css-media-range-syntax", "css-touch-action", "css-scrollbar", "css-selection", "css-text-indent", "css-overflow", "css-resize", "css3-cursors", "text-decoration", "extended-system-fonts"],
+        "browsers": [">= 1%", "last 3 versions", "not dead", "not ie > 0", "not samsung > 0", "not opera > 0", "not op_mob > 0", "not op_mini all", "not kaios > 0", "not baidu > 0", "not and_qq > 0", "not android > 0", "not and_uc > 0"],
+        "ignore": ["css-scrollbar", "css-clip-path", "css-touch-action", "css-resize", "text-decoration", "intrinsic-width", "css3-cursors", "css3-cursors-grab"],
         "severity": "warning"
       }
     ],
@@ -150,6 +153,7 @@
         "font-size",
         "font-style",
         "font-weight",
+        "font-variation-settings",
         "font-variant",
         "font-size-adjust",
         "font-stretch",
