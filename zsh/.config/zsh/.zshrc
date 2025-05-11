@@ -146,6 +146,7 @@ alias diff='diff --color'
 alias cp='cp -i'
 # pnpm
 alias pn='pnpm'
+alias pnx='pnpm exec'
 # lazygit
 alias lg='lazygit'
 
