@@ -39,10 +39,12 @@ body {
 }
 
 .Root__globalNav {
+    --left-sidebar-width: 72;
     background-color: var(--spice-main) !important;
     border-radius: var(--corner-radius) var(--corner-radius) 0 0 !important;
     margin: 0;
     margin-left: calc(var(--left-sidebar-width) * 1px);
+    z-index: 10;
 }
 
 .Root__globalNav .main-globalNav-historyButtonsContainer,
@@ -152,7 +154,7 @@ body {
     text-align: center;
     background-color: var(--spice-button);
     opacity: 0;
-    transition: opacity 0.2s linear, left 0s linear;
+    transition: opacity 0.2s linear, left 0.2s linear;
 }
 
 .playback-bar:hover .prog-tooltip {
@@ -471,9 +473,9 @@ li>div::after {
     transition: left 1s linear;
 }
 
-.playback-progressbar-isInteractive .DuvrswZugGajIFNXObAr .x-progressBar-fillColor,
-.playback-progressbar-isInteractive .DuvrswZugGajIFNXObAr .progress-bar__slider {
-    transition: none;
+/* progress bar moves instant if clicked */
+*:has(.x-progressBar-fillColor, .progress-bar__slider):active :is(.x-progressBar-fillColor, .progress-bar__slider) {
+    transition-duration: 0.001s;
 }
 
 /* right sidebar text */
