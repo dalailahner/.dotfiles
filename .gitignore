@@ -2,9 +2,6 @@
 # Yazi plugins
 **/yazi/plugins
 
-# Created by https://www.toptal.com/developers/gitignore/api/linux,macos,windows,visualstudiocode,zsh,vim,emacs
-# Edit at https://www.toptal.com/developers/gitignore?templates=linux,macos,windows,visualstudiocode,zsh,vim,emacs
-
 ### Emacs ###
 # -*- mode: gitignore; -*-
 *~
@@ -203,5 +200,3 @@ zsdoc/data
 # Zunit tests' output
 /tests/_output/*
 !/tests/_output/.gitkeep
-
-# End of https://www.toptal.com/developers/gitignore/api/linux,macos,windows,visualstudiocode,zsh,vim,emacs
