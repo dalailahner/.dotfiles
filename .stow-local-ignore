@@ -28,3 +28,4 @@ _darcs
 # No stowing, only manual implementation:
 SDDM-eucalyptus-drop
 font
+pacmanHookScripts
