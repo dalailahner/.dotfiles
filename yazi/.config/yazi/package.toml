@@ -1,12 +1,12 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "ecffbf7"
-hash = "1f3dad061209081a6b04dd6ff2cb06c7"
+rev = "c0ad8a3"
+hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "ecffbf7"
-hash = "7918aab6a71caf31b58411f789195677"
+rev = "c0ad8a3"
+hash = "a7ab702e1ef0c097defbc976ed34c186"
 
 [flavor]
 deps = []
