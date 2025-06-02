@@ -4,7 +4,7 @@
 
 # : Manager {{{
 
-[manager]
+[mgr]
 
 cwd = { fg = "darkgray" }
 
@@ -22,10 +22,15 @@ marker_cut = { fg = "white", bg = "red" }
 marker_marked = { fg = "white", bg = "blue" }
 marker_selected = { fg = "white", bg = "white" }
 
-# Tab
-tab_active = { fg = "white", bg = "red" }
-tab_inactive = { fg = "white", bg = "darkgray" }
-tab_width = 1
+# : }}}
+
+
+# : Tabs {{{
+
+[tabs]
+
+active = { fg = "white", bg = "red" }
+inactive = { fg = "white", bg = "darkgray" }
 
 # : }}}
 
