@@ -1,5 +1,6 @@
 {
     "colorscheme": "dalailahner",
+    "diffgutter": true,
     "hlsearch": true,
     "infobar": false,
     "savecursor": true,
