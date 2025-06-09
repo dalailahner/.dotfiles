@@ -25,7 +25,5 @@ _darcs
 
 .*\.kate-swp$   # kate temp files
 
-# No stowing, only manual implementation:
-SDDM-eucalyptus-drop
-font
-scripts
+# User defined ignore list of package files:
+.*
