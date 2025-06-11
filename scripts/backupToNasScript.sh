@@ -22,7 +22,8 @@ date > "$errorLogFile"
 
 homeDirBackup () {
 	if [[ "$#" == 1 && -n "$1" ]]; then
-		sudo -u "$1" rsync -aAXv --delete --exclude "/home/$1/Documents/" --exclude "/home/$1/Pictures/" --exclude "/home/$1/Videos/" --exclude "/home/$1/Music/" --exclude "/home/$1/3D/" --exclude "/home/$1/.cache/" --exclude "/home/$1/.local/share/Trash/" --exclude "/home/$1/.local/share/Steam/" --exclude "/home/$1/.local/share/pnpm/store/" --exclude "/home/$1/.var/" /home "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
+		excludeListArr=(--exclude="/home/$1/"{"Documents","Pictures","Videos","Music","3D",".cache",".local/share/Trash",".var",".local/share/klipper",".local/share/Steam",".local/share/pnpm/store"}"/")
+		sudo -u "$1" rsync -aAXv --delete "${excludeListArr[@]}" /home "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
 		sudo -u "$1" rsync -aAXv --delete "/home/$1/Documents" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/" 2>> "$errorLogFile"
 		picFolder=$(readlink -f "/home/$1/Pictures")
 		sudo -u "$1" rsync -aAXv --delete "$picFolder" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/" 2>> "$errorLogFile"
@@ -64,8 +65,7 @@ if ping -q -4 -c 3 "$backupMachineIP" &> /dev/null; then
 					echo "couldn't mount $user's media drive. skipping backup of $user's home directory..."
 				fi
 
-				sudo umount "/run/media/$user/$MEDIA_DRIVE_UUID"
-				if sudo echo $?; then
+				if sudo umount "/run/media/$user/$MEDIA_DRIVE_UUID"; then
 					sudo rm -rf "/run/media/$user/$MEDIA_DRIVE_UUID"
 				else
 					notify-send --urgency critical --app-name "Backup Script" "WARNING\!" "Couldn't unmount media drive.\nManual intervention needed\!"
