@@ -67,6 +67,8 @@ if ping -q -4 -c 3 "$backupMachineIP" &> /dev/null; then
 				sudo umount "/run/media/$user/$MEDIA_DRIVE_UUID"
 				if sudo echo $?; then
 					sudo rm -rf "/run/media/$user/$MEDIA_DRIVE_UUID"
+				else
+					notify-send --urgency critical --app-name "Backup Script" "WARNING\!" "Couldn't unmount media drive.\nManual intervention needed\!"
 				fi
 			fi
 		fi
