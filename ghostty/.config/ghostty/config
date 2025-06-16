@@ -1,0 +1,82 @@
+### GHOSTTY CONFIG
+
+
+### COLORS
+
+# special
+foreground = #d9d9d9
+background = #232323
+selection-foreground = #e5e5e5
+selection-background = #cd231d
+cursor-color = #d9d9d9
+
+# black
+palette = 0=#1c1c1c
+palette = 8=#4c4c4c
+
+# red
+palette = 1=#cd231d
+palette = 9=#cd231d
+
+# green
+palette = 2=#4dcb58
+palette = 10=#4dcb58
+
+# yellow
+palette = 3=#dfbf20
+palette = 11=#dfbf20
+
+# blue
+palette = 4=#5a80f2
+palette = 12=#5a80f2
+
+# magenta
+palette = 5=#e64cb2
+palette = 13=#e64cb2
+
+# cyan
+palette = 6=#52e0e0
+palette = 14=#52e0e0
+
+# white
+palette = 7=#d9d9d9
+palette = 15=#e5e5e5
+
+
+### FONT
+
+font-family             = "Hack dalailahner Nerd Font"
+font-family-bold        = "Hack Nerd Font"
+font-family-italic      = "Hack Nerd Font"
+font-family-bold-italic = "Hack Nerd Font"
+
+font-size = 11
+font-feature = -calt, -liga, -dlig
+
+
+### OTHER
+
+# cursor
+cursor-style = bar
+cursor-style-blink = true
+
+# mouse
+mouse-hide-while-typing = true
+mouse-shift-capture = true
+
+# window
+background-opacity = 0.9
+window-padding-x = 3
+window-padding-y = 2
+window-padding-balance = true
+window-width = 154
+window-height = 44
+
+# clipboard
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = true
+
+# selection
+minimum-contrast = 1.1
