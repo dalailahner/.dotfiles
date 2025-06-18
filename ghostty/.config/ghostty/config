@@ -54,17 +54,17 @@ font-size = 11
 font-feature = -calt, -liga, -dlig
 
 
-### OTHER
-
-# cursor
+### CURSOR
 cursor-style = bar
 cursor-style-blink = true
 
-# mouse
+
+### MOUSE
 mouse-hide-while-typing = true
 mouse-shift-capture = true
 
-# window
+
+### WINDOW
 background-opacity = 0.9
 window-padding-x = 3
 window-padding-y = 2
@@ -72,11 +72,18 @@ window-padding-balance = true
 window-width = 154
 window-height = 44
 
-# clipboard
+
+### CLIPBOARD
 clipboard-read = allow
 clipboard-write = allow
 clipboard-trim-trailing-spaces = true
 clipboard-paste-protection = true
 
-# selection
+
+### SELECTION
 minimum-contrast = 1.1
+
+
+### KEYBINDS
+keybind = ctrl+t=new_tab
+keybind = ctrl+w=close_tab
