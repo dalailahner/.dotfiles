@@ -151,6 +151,14 @@ alias grep='grep --color=auto'
 alias diff='diff --color'
 # interactive copy
 alias cp='cp -i'
+# fnm
+function fnm() {
+  if [[ "$1" == "ls-all" ]]; then
+    echo "- remote:\n..." && fnm ls-remote | tail -n 20 && echo "\n- local:" && fnm ls
+  else
+    command fnm "$@"
+  fi
+}
 # pnpm
 alias pn='pnpm'
 alias pnx='pnpm exec'
