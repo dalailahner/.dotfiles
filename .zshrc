@@ -45,6 +45,8 @@ esac
 alias ls="ls --color"
 # interactive copy
 alias cp="cp -i"
+# bat
+alias bat="batcat"
 # pnpm
 alias pn="pnpm"
 
