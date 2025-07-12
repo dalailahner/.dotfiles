@@ -143,14 +143,14 @@ esac
 
 ## ALIASES
 
-# colored ls
-alias ls='ls --color=auto'
 # colored grep
 alias grep='grep --color=auto'
 # colored diff
 alias diff='diff --color'
 # interactive copy
 alias cp='cp -i'
+# use eza instead of ls
+alias ls='eza'
 # fnm
 function fnm() {
   if [[ "$1" == "ls-all" ]]; then
