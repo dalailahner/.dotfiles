@@ -31,19 +31,30 @@
     "rules": {
       "recommended": true,
       "complexity": {
-        "noForEach": "error"
+        "noForEach": "error",
+        "useSimplifiedLogicExpression": "error"
       },
+      "nursery": {
+        "useJsonImportAttribute": "error",
+        "useSingleJsDocAsterisk": "error"
+      }
       "style": {
+        "noCommonJs": "error",
+        "noInferrableTypes": "error",
         "noParameterAssign": "error",
+        "noUnusedTemplateLiteral": "error",
+        "noUselessElse": "error",
+        "noYodaExpression": "error",
         "useAsConstAssertion": "error",
         "useDefaultParameterLast": "error",
         "useEnumInitializers": "error",
-        "useSelfClosingElements": "error",
-        "useSingleVarDeclarator": "error",
-        "noUnusedTemplateLiteral": "error",
         "useNumberNamespace": "error",
-        "noInferrableTypes": "error",
-        "noUselessElse": "error"
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error"
+      },
+      "suspicious": {
+        "noVar": "error",
+        "useStrictMode": "error"
       }
     }
   },
