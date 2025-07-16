@@ -37,7 +37,7 @@
       "nursery": {
         "useJsonImportAttribute": "error",
         "useSingleJsDocAsterisk": "error"
-      }
+      },
       "style": {
         "noCommonJs": "error",
         "noInferrableTypes": "error",
