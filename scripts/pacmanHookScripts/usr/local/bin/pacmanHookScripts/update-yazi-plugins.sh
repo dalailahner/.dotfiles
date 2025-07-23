@@ -4,6 +4,6 @@ for dir in /home/*; do
   # check if real user and if proper directory
   if id "$user" &>/dev/null && [ -d "$dir" ]; then
     echo "updating $user's yazi plugins"
-    sudo -u "$user" /usr/bin/ya pkg --upgrade
+    sudo -i -u "$user" /usr/bin/ya pkg upgrade
   fi
 done
