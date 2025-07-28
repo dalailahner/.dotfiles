@@ -30,7 +30,7 @@ yay
 
 terminal
 ```Shell
-yay -S kitty zsh starship zoxide fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting micro
+yay -S ghostty zsh starship zoxide fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting micro
 ```
 
 yazi
@@ -77,23 +77,15 @@ cd ~ && gh repo clone dalailahner/.dotfiles
 cd ~/.dotfiles && stow .
 ```
 
-### kitty theme
-
-choose the dalailahner theme when running:
-
-```Shell
-kitten themes
-```
-
-and select "copy theme to current-theme.conf without changing the kitty.config"
-
 ---
 
 reopen terminal or source the rc files
 
 ---
 
-### install tools
+### setup tools
+
+if using localsend, don't forget to allow the port in the firewall.
 
 ```Shell
 fnm install --latest
