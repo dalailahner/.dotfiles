@@ -22,7 +22,7 @@ date > "$errorLogFile"
 
 homeDirBackup () {
 	if [[ "$#" == 1 && -n "$1" ]]; then
-		excludeListArr=(--exclude="/home/$1/"{"Documents","Pictures","Videos","Music","3D",".cache",".local/share/Trash",".var",".local/share/klipper",".local/share/Steam",".local/share/pnpm/store"}"/")
+		excludeListArr=(--exclude="/home/$1/"{"Documents","Pictures","Videos","Music","3D",".cache",".local/share/Trash",".var",".local/share/klipper",".local/share/Steam",".local/share/pnpm/store", ".wine/drive_c/users/dalailahner/AppData/Local/Temp", ".config/vesktop/sessionData"}"/")
 		sudo -u "$1" rsync -aAXv --delete "${excludeListArr[@]}" /home "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
 		sudo -u "$1" rsync -aAXv --delete "/home/$1/Documents" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/" 2>> "$errorLogFile"
 		picFolder=$(readlink -f "/home/$1/Pictures")
@@ -75,7 +75,7 @@ if ping -q -4 -c 3 "$backupMachineIP" &> /dev/null; then
 	done
 
 	echo "backing up system files..."
-	sudo rsync -aAXv --delete /root "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
+	sudo rsync -aAXv --delete --exclude="/root/.cache" /root "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
 	sudo rsync -aAXv --delete /etc "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
 	sudo rsync -aAXv --delete /boot "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
 	sudo rsync -aAXv --delete /usr/local "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/usr/" 2>> "$errorLogFile"
