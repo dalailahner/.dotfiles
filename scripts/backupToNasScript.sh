@@ -22,14 +22,23 @@ date > "$errorLogFile"
 
 homeDirBackup () {
 	if [[ "$#" == 1 && -n "$1" ]]; then
-		excludeListArr=(--exclude="/home/$1/"{"Documents","Pictures","Videos","Music","3D",".cache",".local/share/Trash",".var",".local/share/klipper",".local/share/Steam",".local/share/pnpm/store", ".wine/drive_c/users/dalailahner/AppData/Local/Temp", ".config/vesktop/sessionData"}"/")
-		sudo -u "$1" rsync -aAXv --delete "${excludeListArr[@]}" /home "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
+		excludePaths=("Documents" "Pictures" "Videos" "Music" "3D" ".cache" ".local/share/Trash" ".var" ".local/share/klipper" ".local/share/Steam" ".local/share/pnpm/store" ".wine/drive_c/users/dalailahner/AppData/Local/Temp" ".config/vesktop/sessionData")
+    excludeListArr=()
+    for folder in "${excludePaths[@]}"; do
+        excludeListArr+=(--exclude="/home/$1/$folder")
+    done
+    sudo -u "$1" rsync -aAXv --delete "${excludeListArr[@]}" /home "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
+
 		sudo -u "$1" rsync -aAXv --delete "/home/$1/Documents" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/" 2>> "$errorLogFile"
+
 		picFolder=$(readlink -f "/home/$1/Pictures")
 		sudo -u "$1" rsync -aAXv --delete "$picFolder" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/" 2>> "$errorLogFile"
+
 		vidFolder=$(readlink -f "/home/$1/Videos")
 		sudo -u "$1" rsync -aAXv --delete "$vidFolder" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/" 2>> "$errorLogFile"
+
 		sudo -u "$1" rsync -aAXv --delete "/home/$1/Music" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/" 2>> "$errorLogFile"
+
 		sudo -u "$1" rsync -aAXv --delete "/home/$1/3D" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/" 2>> "$errorLogFile"
 	else
 		echo "homeDirBackup function needs exactly 1 argument with a non-empty string (got $#)."
