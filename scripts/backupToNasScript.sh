@@ -83,10 +83,16 @@ if ping -q -4 -c 3 "$backupMachineIP" &> /dev/null; then
 		fi
 	done
 
-	echo "backing up system files..."
+	echo "backing up /root ..."
 	sudo rsync -aAXv --delete --exclude="/root/.cache" /root "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
+
+	echo "backing up /etc ..."
 	sudo rsync -aAXv --delete /etc "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
+
+	echo "backing up /boot ..."
 	sudo rsync -aAXv --delete /boot "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
+
+	echo "backing up /usr/local ..."
 	sudo rsync -aAXv --delete /usr/local "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/usr/" 2>> "$errorLogFile"
 
 	exit 0
