@@ -3,6 +3,9 @@
 ### IMPORTANT:
 ### $backupMachineIP & $MEDIA_DRIVE_UUID are an environment variables that must be set in /etc/profile or /etc/environment
 
+# exit on errors and unset variables
+set -eu
+
 errorLogFile="$HOME/backupErrorLog.txt"
 echo -n "ssh username: "
 read -r SSHusername
