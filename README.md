@@ -26,6 +26,14 @@ yay
 
 ---
 
+### optimize package build:
+
+add `MAKEFLAGS="--jobs=$(nproc)"` to `/etc/makepkg.conf` to enable all cores for building. (test if `nproc` is available beforehand)
+
+change the `PKGEXT` in `/etc/makepkg.conf` from `PKGEXT='.pkg.tar.zst'` to `PKGEXT='.pkg.tar.lz4'`
+
+---
+
 ### install packages:
 
 terminal
@@ -36,7 +44,7 @@ yay -S ghostty zsh starship zoxide fzf zsh-autocomplete zsh-autosuggestions zsh-
 yazi
 ```Shell
 # check if the dependencies are still correct
-yay -S yazi ffmpegthumbnailer p7zip jq poppler fd ripgrep imagemagick
+yay -S ffmpegthumbnailer p7zip jq poppler fd ripgrep imagemagick yazi
 ```
 
 tools
