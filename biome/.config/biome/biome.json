@@ -24,8 +24,8 @@
         "noForEach": "error",
         "useSimplifiedLogicExpression": "error"
       },
-      "nursery": {
-        "useJsonImportAttribute": "error",
+      "correctness": {
+        "useJsonImportAttributes": "error",
         "useSingleJsDocAsterisk": "error"
       },
       "style": {
