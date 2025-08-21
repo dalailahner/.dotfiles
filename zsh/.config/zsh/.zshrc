@@ -166,7 +166,19 @@ alias pnx='pnpm exec'
 alias lg='lazygit'
 
 
-## STARTUP (not in vscode)
+## STARTUP
+
+# set wallpaper artist as env variable (for fastfetch)
+wallpaper_uri=$(qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.wallpaper 0 | grep -oP 'file://\S+')
+wallpaper_basename=$(basename "${wallpaper_uri#file://}")
+wallpaper_artist=$(echo "$wallpaper_basename" | sed -nE 's/.+[^[:alnum:]]by[^[:alnum:]]([^.]+)\..+/\1/p')
+if [[ -n "$wallpaper_artist" ]]; then
+  export WALLPAPER_ARTIST="${wallpaper_artist//_/ }"
+else  
+  export WALLPAPER_ARTIST="unknown"
+fi
+
+# fastfetch
 if [[ "$TERM_PROGRAM" != "vscode" ]]; then
   fastfetch
 fi

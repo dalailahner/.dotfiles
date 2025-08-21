@@ -133,8 +133,8 @@
       "format": "{#31}{$1}{#40}  {#41}  {#42}  {#43}  {#44}  {#45}  {#46}  {#47}  {#49}{#31} Terminal img by 雨様 (@Yu_Yang6)"
     },
     {
-      "format": "{#31}{$1}{#100}  {#101}  {#102}  {#103}  {#104}  {#105}  {#106}  {#107}  {#49}{#31} Wallpaper img by xxx",
-      "type": "custom"
+      "type": "custom",
+      "format": "{#31}{$1}{#100}  {#101}  {#102}  {#103}  {#104}  {#105}  {#106}  {#107}  {#49}{#31} Desktop Wallpaper by {$WALLPAPER_ARTIST}"
     },
     {
       "type": "custom",
