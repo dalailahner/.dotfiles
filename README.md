@@ -104,3 +104,9 @@ pnpm install -g @biomejs/biome stylelint stylelint-config-standard stylelint-ord
 ```
 
 ---
+
+### configure system
+
+uncomment and set `SystemMaxUse-50M` in `/etc/systemd/journald.conf`.
+
+---
