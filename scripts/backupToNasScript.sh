@@ -29,7 +29,7 @@ homeDirBackup () {
 	  printf "\n"
 	  echo "---------------------------------------------------------------------------------"
 	  printf "\nbacking up $1's home directory...\n"
-		excludePaths=("Documents" "Pictures" "Videos" "Music" "3D" ".cache" ".local/share/Trash" ".var" ".local/share/klipper" ".local/share/Steam" ".local/share/pnpm/store" ".wine/drive_c/users/dalailahner/AppData/Local/Temp" ".config/vesktop/sessionData" ".config/micro/buffers")
+		excludePaths=("Documents" "Pictures" "Videos" "Music" "3D" ".cache" ".local/share/Trash" ".var" ".local/share/klipper" ".local/share/Steam" ".local/share/pnpm" ".wine/drive_c/users/dalailahner/AppData/Local/Temp" ".config/vesktop/sessionData" ".config/micro/buffers")
     excludeListArr=()
     for folder in "${excludePaths[@]}"; do
         excludeListArr+=(--exclude="/home/$1/$folder")
@@ -97,7 +97,7 @@ if ping -q -4 -c 3 "$backupMachineIP" &> /dev/null; then
 	printf "\n"
 	echo "---------------------------------------------------------------------------------"
 	printf "\nbacking up /root ...\n"
-	sudo rsync -aAXv --delete --exclude="/root/.cache" /root "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
+	sudo rsync -aAXv --delete --exclude="/root/.cache" --exclude="/root/.config/micro/buffers" /root "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/archlinux/" 2>> "$errorLogFile"
 
 	printf "\n"
 	echo "---------------------------------------------------------------------------------"
