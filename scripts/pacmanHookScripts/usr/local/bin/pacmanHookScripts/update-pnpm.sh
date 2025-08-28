@@ -4,6 +4,6 @@ for dir in /home/*; do
   # check if real user and if proper directory
   if id "$user" &>/dev/null && [ -d "$dir" ]; then
     echo "updating $user's pnpm"
-    sudo -i -u "$user" pnpm self-update
+    "/home/$user/.local/share/pnpm/pnpm" self-update
   fi
 done
