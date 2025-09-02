@@ -4,6 +4,8 @@
 ## ENVIRONMENT VARIABLES
 export EDITOR=$(where micro | head -n 1)
 export VISUAL=$(where micro | head -n 1)
+# for winapps (actually for libvirt)
+export LIBVIRT_DEFAULT_URI="qemu:///system"
 eval `dircolors --bourne-shell ~/.config/zsh/.dir_colors`
 if [[ "$TERM_PROGRAM" != "vscode" ]]; then
   export STARSHIP_CONFIG="$HOME/.config/starship/starship_default.toml"
