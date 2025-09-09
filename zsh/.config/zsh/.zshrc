@@ -46,6 +46,7 @@ setopt SHARE_HISTORY
 setopt appendhistory
 
 ## MISC SETTINGS
+setopt autocd
 setopt ignore_eof
 unsetopt beep
 bindkey -e
