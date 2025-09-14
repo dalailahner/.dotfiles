@@ -11,3 +11,9 @@ gui:
       - bold
     selectedLineBgColor:
       - red
+keybinding:
+  universal:
+    suspendApp: <disabled>
+    undo: <c-z>
+    copyPullRequestURL: <disabled>
+    redo: <c-y>
