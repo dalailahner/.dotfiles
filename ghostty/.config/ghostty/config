@@ -57,6 +57,7 @@ font-feature = -calt, -liga, -dlig
 ### CURSOR
 cursor-style = bar
 cursor-style-blink = true
+custom-shader = shaders/cursor_trail.glsl
 
 
 ### MOUSE
