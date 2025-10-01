@@ -140,3 +140,27 @@ body {
   --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
   --divider-thickness: 1px; /* thickness of unread messages divider and highlighted message borders */
 }
+
+/* fix clipping on the "nav" title text */
+nav:is([class^='wrapper_'], [class^='guilds_']), nav:is([class*=' wrapper_'], [class*=' guilds_']) {
+  -webkit-mask: none;
+  mask: none;
+}
+
+/* better contrast for server channel max size text */
+span[class^='total_'], span[class*=' total_'] {
+  color: var(--text-0);
+}
+
+/* better contrast for the reaction button */
+div[class^='reaction__'], div[class*=' reaction__'] {
+  background-color: var(--bg-4);
+  border-color: var(--bg-2);
+  &:hover {
+    background-color: var(--bg-1);
+    border-color: var(--bg-1);
+  }
+}
+div[class^='reactionCount__'], div[class*=' reactionCount__'] {
+  color: var(--text-3);
+}
