@@ -310,6 +310,7 @@
         "resize",
         "cursor",
         "scroll-behavior",
+        "scroll-margin",
         "pointer-events",
         "user-select",
         "perspective-origin",
