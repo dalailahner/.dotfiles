@@ -4,7 +4,7 @@ for dir in /home/*; do
   # check if real user and if proper directory
   if id "$user" &>/dev/null && [ -d "$dir" ]; then
     echo "updating $user's pnpm"
-    cd "/home/$user/.local/share/pnpm"
-    ./pnpm self-update
+    cd "/home/$user"
+    sudo -Hu "$user" zsh -lc "/home/$user/.local/share/pnpm/pnpm self-update"
   fi
 done
