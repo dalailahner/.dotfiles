@@ -6,5 +6,7 @@ for dir in /home/*; do
     echo "updating $user's pnpm"
     cd "/home/$user"
     sudo -Hu "$user" zsh -lc "/home/$user/.local/share/pnpm/pnpm self-update"
+    echo "prune $user's pnpm store"
+    sudo -Hu "$user" zsh -lc "/home/$user/.local/share/pnpm/pnpm store prune"
   fi
 done
