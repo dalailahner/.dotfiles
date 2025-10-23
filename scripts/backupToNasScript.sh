@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 ### IMPORTANT:
 ### $backupMachineIP & $MEDIA_DRIVE_UUID are an environment variables that must be set in /etc/profile or /etc/environment

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 if [ -d "/home/$USER/.local/share/pnpm/.tools/pnpm" ]; then
   echo "updating pnpm of $USER"
   /home/$USER/.local/share/pnpm/pnpm self-update
