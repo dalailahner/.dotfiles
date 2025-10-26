@@ -1,0 +1,3 @@
+noblacklist ${HOME}/.dotfiles/font
+whitelist ${HOME}/.dotfiles/font
+whitelist ${HOME}/Desktop
