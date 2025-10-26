@@ -1,0 +1,4 @@
+whitelist ${HOME}/Desktop
+
+# for the video download helper extension:
+whitelist ${HOME}/.local/share/vdhcoapp
