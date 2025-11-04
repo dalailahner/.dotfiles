@@ -150,8 +150,10 @@ esac
 alias grep='grep --color=auto'
 # colored diff
 alias diff='diff --color'
-# interactive copy
-alias cp='cp -i'
+# interactive and verbose copy
+alias cp='cp -iv'
+# interactive and verbose move
+alias mv='mv -iv'
 # use eza instead of ls
 alias ls='eza'
 # fnm
