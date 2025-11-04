@@ -156,6 +156,12 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 # use eza instead of ls
 alias ls='eza'
+# run background process (also works for firejail sandboxes)
+runbg() {
+  {
+    "$@" > /dev/null 2>&1 &
+  } &
+}
 # fnm
 function fnm() {
   if [[ "$1" == "ls-all" ]]; then
