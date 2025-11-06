@@ -31,10 +31,17 @@
     ],
     "order/order": [
       [
+        {
+          "type": "at-rule",
+          "name": "view-transition"
+        },
+        {
+          "type": "at-rule",
+          "name": "property"
+        },
         "dollar-variables",
         "at-variables",
         "custom-properties",
-        "at-rules",
         "declarations",
         {
           "type": "at-rule",
@@ -52,7 +59,12 @@
           "type": "at-rule",
           "name": "media"
         },
-        "rules"
+        "at-rules",
+        "rules",
+        {
+          "type": "at-rule",
+          "name": "keyframes"
+        }
       ],
       {
         "unspecified": "bottom",
