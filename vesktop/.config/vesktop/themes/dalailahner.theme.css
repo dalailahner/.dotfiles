@@ -142,9 +142,21 @@ body {
 }
 
 /* fix clipping on the "nav" title text */
-nav:is([class^='wrapper_'], [class^='guilds_']), nav:is([class*=' wrapper_'], [class*=' guilds_']) {
+nav:is([class^='wrapper_'],
+[class^='guilds_']),
+nav:is([class*=' wrapper_'],
+[class*=' guilds_']) {
   -webkit-mask: none;
   mask: none;
+}
+
+/* fix clipping on the "chat" title text */
+:is([class^="content_"], [class*=" content_"]) {
+  & :is([class^="chatContent_"], [class*=" chatContent_"]) {
+    & :is([class^="messagesWrapper_"], [class*=" messagesWrapper_"]) {
+      overflow: visible;
+    }
+  }
 }
 
 /* better contrast for server channel max size text */
