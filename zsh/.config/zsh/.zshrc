@@ -119,6 +119,9 @@ eval "$(starship init zsh)"
 
 ## TOOLS
 
+# gpg keys for git
+export GPG_TTY=$(tty)
+
 # yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
