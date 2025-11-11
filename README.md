@@ -96,6 +96,10 @@ reopen terminal or source the rc files
 if using localsend, don't forget to allow the port in the firewall.
 
 ```Shell
+ya pkg install
+```
+
+```Shell
 fnm install --latest
 ```
 
