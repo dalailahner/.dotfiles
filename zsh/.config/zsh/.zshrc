@@ -175,7 +175,7 @@ function fnm() {
 }
 # pnpm
 alias pn='pnpm'
-alias pnx='pnpm exec'
+alias pnx='pnpx'
 # lazygit
 alias lg='lazygit'
 
