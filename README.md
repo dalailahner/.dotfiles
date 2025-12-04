@@ -88,11 +88,15 @@ cd ~/.dotfiles && stow .
 ### font
 
 ```Shell
+~/.dotfiles/font/generateFont.sh
+```
+
+```Shell
 sudo mkdir -p /usr/local/share/fonts
 ```
 
 ```Shell
-sudo ln -s ~/.dotfiles/font/Hack-dalailahner-NF-Regular.ttf /usr/local/share/fonts/Hack-dalailahner-NF-Regular.ttf
+sudo ln -s ~/.dotfiles/font/dalailahner.ttf /usr/local/share/fonts/dalailahner.ttf
 ```
 
 ```Shell

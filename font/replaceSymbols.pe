@@ -1,0 +1,73 @@
+#!fontforge -script
+
+# $1 = base.sfd
+# $2 = NerdFont.ttf
+# $3 = symbols.ttf
+# $4 = output.ttf
+
+
+Open($1)
+
+mainAscent=$ascent
+mainDescent=$descent
+Select("A")
+mainWidth=GlyphInfo("Width")
+
+SelectNone()
+Select(0uE0D8, 0uE0D9)
+SelectInvert()
+Clear()
+
+MergeFonts($2)
+
+SelectNone()
+Select(0u0021, 0u002F)
+SelectMore(0u003A, 0u0040)
+SelectMore(0u005B, 0u0060)
+SelectMore(0u007B, 0u007E)
+SelectMore(0u00A1, 0u00A2)
+Clear()
+
+# set font values (ascend, descend, ..) before merging
+Open($3)
+
+ScaleToEm(mainAscent, mainDescent)
+
+SetOS2Value("WinAscent", mainAscent)
+SetOS2Value("WinDescent", mainDescent)
+
+SetOS2Value("TypoAscent", mainAscent)
+SetOS2Value("TypoDescent", mainDescent)
+
+SetOS2Value("HHeadAscent", mainAscent)
+SetOS2Value("HHeadDescent", mainDescent)
+
+SelectNone()
+Select("A")
+wrongWidth=GlyphInfo("Width")
+moveX=(mainWidth - wrongWidth) / 2
+
+Print("mainWidth: ", mainWidth)
+Print("wrongWidth: ", wrongWidth)
+Print("moveX: ", moveX)
+
+SelectNone()
+Select(0u0021, 0u002F)
+SelectMore(0u003A, 0u0040)
+SelectMore(0u005B, 0u0060)
+SelectMore(0u007B, 0u007E)
+SelectMore(0u00A1, 0u00A2)
+Move(moveX, 0)
+SetWidth(mainWidth)
+
+SelectInvert()
+Clear()
+
+Open($firstfont)
+MergeFonts($3)
+
+
+Generate($4)
+
+
+Quit()

@@ -45,7 +45,7 @@ palette = 15=#e5e5e5
 
 ### FONT
 
-font-family             = "Hack dalailahner Nerd Font"
+font-family             = "dalailahner"
 font-family-bold        = "Hack Nerd Font"
 font-family-italic      = "Hack Nerd Font"
 font-family-bold-italic = "Hack Nerd Font"
