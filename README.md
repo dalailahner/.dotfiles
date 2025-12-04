@@ -85,6 +85,20 @@ cd ~ && gh repo clone dalailahner/.dotfiles
 cd ~/.dotfiles && stow .
 ```
 
+### font
+
+```Shell
+sudo mkdir -p /usr/local/share/fonts
+```
+
+```Shell
+sudo ln -s ~/.dotfiles/font/Hack-dalailahner-NF-Regular.ttf /usr/local/share/fonts/Hack-dalailahner-NF-Regular.ttf
+```
+
+```Shell
+fc-cache -v
+```
+
 ---
 
 reopen terminal or source the rc files
