@@ -115,6 +115,7 @@ bindkey '^D' fzf-cd-widget
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(mcfly init zsh)"
 
 
 ## TOOLS

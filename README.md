@@ -41,6 +41,11 @@ terminal
 yay -S ghostty zsh starship zoxide fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting micro
 ```
 
+McFly
+```Shell
+yay -S mcfly
+```
+
 yazi
 ```Shell
 # check if the dependencies are still correct
