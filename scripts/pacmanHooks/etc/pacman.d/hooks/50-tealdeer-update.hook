@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Updating tealdeer db...
+Depends = tealdeer
+When = PostTransaction
+Exec = /usr/local/share/pacmanHookScripts/update-tldr-db.sh

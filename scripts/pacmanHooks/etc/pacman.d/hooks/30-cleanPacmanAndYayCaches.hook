@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Remove
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = cleaning Pacman and Yay caches...
+When = PostTransaction
+Exec = /usr/local/share/pacmanHookScripts/cleanPacmanAndYayCaches.sh

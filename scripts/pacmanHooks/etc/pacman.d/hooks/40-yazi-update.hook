@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = yazi
+
+[Action]
+Description = update yazi plugins...
+When = PostTransaction
+Exec = /usr/local/share/pacmanHookScripts/update-yazi-plugins.sh

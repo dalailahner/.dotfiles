@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = spotify
+
+[Action]
+Description = reapply spicetify from backup...
+Depends = spicetify-cli
+When = PostTransaction
+Exec = /usr/local/share/pacmanHookScripts/reapply-spicetify.sh
