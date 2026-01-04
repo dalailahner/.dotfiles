@@ -50,6 +50,8 @@ setopt autocd
 setopt ignore_eof
 unsetopt beep
 bindkey -e
+# enable extended globbing
+setopt extended_glob
 # fix for zsh-autocomplete
 setopt interactive_comments
 
