@@ -2,7 +2,7 @@
 
 ---
 
-### install yay:
+## INSTALL YAY
 
 ```Shell
 sudo pacman -Syu
@@ -26,40 +26,45 @@ yay
 
 ---
 
-### optimize package build:
+## OPTIMIZE PACKAGE BUILD
 
-add `MAKEFLAGS="--jobs=$(nproc)"` to `/etc/makepkg.conf` to enable all cores for building. (test if `nproc` is available beforehand)
+- add `MAKEFLAGS="--jobs=$(nproc)"` to `/etc/makepkg.conf` to enable all cores for building. (test if `nproc` is available beforehand)
 
-change the `PKGEXT` in `/etc/makepkg.conf` from `PKGEXT='.pkg.tar.zst'` to `PKGEXT='.pkg.tar.lz4'`
+- change the `PKGEXT` in `/etc/makepkg.conf` from `PKGEXT='.pkg.tar.zst'` to `PKGEXT='.pkg.tar.lz4'`
 
 ---
 
-### install packages:
+## INSTALL PACKAGES
 
 terminal
+
 ```Shell
 yay -S ghostty zsh starship zoxide fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting micro
 ```
 
 McFly
+
 ```Shell
 yay -S mcfly
 ```
 
 yazi
+
 ```Shell
 # check if the dependencies are still correct
 yay -S ffmpegthumbnailer p7zip jq poppler fd ripgrep imagemagick yazi
 ```
 
 tools
+
 ```Shell
 yay -S stow unzip github-cli lazygit ttf-liberation ttf-hack-nerd fnm-bin pnpm fastfetch
 ```
 
 ---
 
-### set zsh as default shell
+## SET ZSH AS DEFAULT SHELL
+
 ```Shell
 sudo chsh -s $(which zsh)
 ```
@@ -68,6 +73,8 @@ open a new terminal and press "q" to the zsh warning
 
 ---
 
+## DOTFILES
+
 ### setup
 
 ```Shell
@@ -75,7 +82,10 @@ gh auth login
 ```
 
 ```Shell
-git config --global rebase.updateRefs true
+git config --global rebase.updateRefs true &&
+git config --global pull.ff only &&
+git config --global core.autocrlf input
+# also setup GPG key
 ```
 
 ### clone
@@ -90,9 +100,14 @@ cd ~ && gh repo clone dalailahner/.dotfiles
 cd ~/.dotfiles && stow .
 ```
 
-### font
+### reopen terminal or source the rc files
+
+---
+
+## FONT
 
 ```Shell
+# needs fontforge
 ~/.dotfiles/font/generateFont.sh
 ```
 
@@ -110,13 +125,7 @@ fc-cache -v
 
 ---
 
-reopen terminal or source the rc files
-
----
-
-### setup tools
-
-if using localsend, don't forget to allow the port in the firewall.
+## SETUP TOOLS
 
 ```Shell
 ya pkg install
@@ -132,8 +141,14 @@ pnpm install -g @biomejs/biome stylelint stylelint-config-standard stylelint-ord
 
 ---
 
-### configure system
+## CONFIGURE SYSTEM
 
-uncomment and set `SystemMaxUse-50M` in `/etc/systemd/journald.conf`.
+- uncomment and set `SystemMaxUse-50M` in `/etc/systemd/journald.conf`.
+- if using localsend, don't forget to allow the port in the firewall.
+
+- if dualbooting with windows, set linux to read the hardware clock as local time:
+  ```Shell
+  sudo timedatectl set-local-rtc 1
+  ```
 
 ---
