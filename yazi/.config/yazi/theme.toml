@@ -8,10 +8,6 @@
 
 cwd = { fg = "darkgray" }
 
-# Hovered
-hovered = { fg = "white", bg = "red" }
-preview_hovered = { underline = true }
-
 # Find
 find_keyword = { fg = "white", bold = true, italic = true }
 find_position = { fg = "red", bg = "white", italic = true }
@@ -21,6 +17,17 @@ marker_copied = { fg = "white", bg = "green" }
 marker_cut = { fg = "white", bg = "red" }
 marker_marked = { fg = "white", bg = "blue" }
 marker_selected = { fg = "white", bg = "white" }
+
+# : }}}
+
+
+# : Indicator {{{
+
+[indicator]
+
+current = { fg = "white", bg = "red" }
+preview = { underline = true }
+padding = { open = "", close = "" }
 
 # : }}}
 
@@ -150,30 +157,30 @@ rules = [
 	{ mime = "application/{tar,bzip*,7z-compressed,xz,rar}", fg = "darkgray", bold = true },
 
 	# Link
-	{ name = "*", is = "link", fg = "cyan", underline = true },
+	{ url = "*", is = "link", fg = "cyan", underline = true },
 
 	# Orphan
-	{ name = "*", is = "orphan", fg = "white", bg = "red", bold = true },
+	{ url = "*", is = "orphan", fg = "white", bg = "red", bold = true },
 
 	# FIFO
-	{ name = "*", is = "fifo", fg = "yellow", bg = "black" },
+	{ url = "*", is = "fifo", fg = "yellow", bg = "black" },
 
 	# Socket
-	{ name = "*", is = "sock", fg = "magenta", bold = true },
+	{ url = "*", is = "sock", fg = "magenta", bold = true },
 
 	# Block device
-	{ name = "*", is = "block", fg = "red", bg = "black", bold = true },
+	{ url = "*", is = "block", fg = "red", bg = "black", bold = true },
 
 	# Char device
-	{ name = "*", is = "char", fg = "red", bg = "black", bold = true },
+	{ url = "*", is = "char", fg = "red", bg = "black", bold = true },
 
 	# Exectuable
-	{ name = "*", is = "exec", fg = "red", bold = true },
+	{ url = "*", is = "exec", fg = "red", bold = true },
 
 	# Sticky
-	{ name = "*", is = "sticky", fg = "black", bg = "green" },
+	{ url = "*", is = "sticky", fg = "black", bg = "green" },
 	
 	# Directory
-	{ name = "*/", fg = "green", bold = true },
+	{ url = "*/", fg = "green", bold = true },
 
 ]
