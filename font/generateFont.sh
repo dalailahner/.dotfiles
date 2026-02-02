@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# exit on errors and unset variables
-set -eu
-
 # required commands
 REQUIRED_COMMANDS=("curl" "dirname" "readlink" "/usr/bin/fontforge")
 
