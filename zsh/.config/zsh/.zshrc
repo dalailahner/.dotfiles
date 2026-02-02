@@ -2,8 +2,8 @@
 
 
 ## ENVIRONMENT VARIABLES
-export EDITOR=$(where micro | head -n 1)
-export VISUAL=$(where micro | head -n 1)
+export EDITOR=$(where fresh | head -n 1)
+export VISUAL=$(where fresh | head -n 1)
 # for winapps (actually for libvirt)
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 eval `dircolors --bourne-shell ~/.config/zsh/.dir_colors`
