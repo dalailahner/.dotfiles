@@ -1,0 +1,42 @@
+noblacklist ${HOME}/.dotfiles/newsboat
+whitelist ${HOME}/.dotfiles/newsboat
+
+noblacklist ${HOME}/.newsboat
+whitelist ${HOME}/.newsboat
+
+ignore noexec /tmp
+ignore noexec ${HOME}
+ignore caps.drop all
+ignore ipc-namespace
+ignore no3d
+ignore nonewprivs
+ignore noroot
+ignore novideo
+ignore protocol
+ignore seccomp
+ignore private-bin
+ignore private-etc
+ignore private-tmp
+ignore dbus-user none
+ignore dbus-system none
+ignore memory-deny-write-execute
+
+noblacklist ${HOME}/.cache/BraveSoftware
+noblacklist ${HOME}/.config/BraveSoftware
+noblacklist ${HOME}/.config/brave
+noblacklist ${HOME}/.config/brave-flags.conf
+noblacklist ${HOME}/.gnupg
+noblacklist /proc/config.gz
+noblacklist ${HOME}/.pki
+noblacklist ${HOME}/.local/share/pki
+
+mkdir ${HOME}/.cache/BraveSoftware
+mkdir ${HOME}/.config/BraveSoftware
+mkdir ${HOME}/.config/brave
+whitelist ${HOME}/.cache/BraveSoftware
+whitelist ${HOME}/.config/BraveSoftware
+whitelist ${HOME}/.config/brave
+whitelist ${HOME}/.config/brave-flags.conf
+whitelist ${HOME}/.gnupg
+
+caps.keep sys_admin,sys_chroot

@@ -1,0 +1,45 @@
+# NEWSBOAT CONFIG
+
+browser "xdg-open %u"
+
+# KEYBINDS:
+
+unbind-key q
+unbind-key n
+unbind-key r
+unbind-key s
+unbind-key o
+unbind-key e
+unbind-key R
+unbind-key A
+unbind-key C
+unbind-key N
+unbind-key O
+unbind-key <ENTER>
+
+bind <ESC> feedlist quit
+bind <LEFT> articlelist,article quit
+bind <RIGHT> feedlist,articlelist open
+bind <ENTER> feedlist open-all-unread-in-browser-and-mark-read
+bind <ENTER> articlelist open-in-browser-and-mark-read
+bind f feedlist reload-all
+bind m feedlist mark-feed-read
+bind m articlelist toggle-article-read
+bind M feedlist mark-all-feeds-read
+bind M articlelist mark-feed-read
+
+
+# COLORS:
+
+color background          default default
+color listnormal          default default
+color listfocus           default red
+color listnormal_unread   default default bold
+color listfocus_unread    default red     bold
+color title               red     black
+color info                default black   bold
+color hint-key            red     black   bold
+color hint-keys-delimiter default black
+color hint-separator      color8  black
+color hint-description    color8  black
+color article             white   default

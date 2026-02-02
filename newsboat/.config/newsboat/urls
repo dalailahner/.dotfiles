@@ -1,0 +1,40 @@
+# URL LIST FOR NEWSBOAT:
+
+# Arch Linux News
+https://archlinux.org/feeds/news/
+
+# It's FOSS
+https://itsfoss.com/feed
+
+# Web Weekly Newsletter
+https://webweekly.email/rss.xml
+
+# Fresh Frontend Links Newsletter
+https://medium.com/feed/@frontender-ua
+
+# JavaScript Weekly Newsletter
+https://cprss.s3.amazonaws.com/javascriptweekly.com.xml
+
+# Frontend Focus Newsletter
+https://cprss.s3.amazonaws.com/frontendfoc.us.xml
+
+# Frontendmasters Blog
+https://frontendmasters.com/blog/feed/
+
+# Evil Martians Blog
+https://evilmartians.com/chronicles.atom
+
+# Manuel Matuzović Blog
+https://www.matuzo.at/feed.xml
+
+# HTMHell Blog
+https://www.htmhell.dev/feed.xml
+
+# thomasorus Blog
+https://thomasorus.com/feed.xml
+
+# joshwcomeau Blog
+https://www.joshwcomeau.com/rss.xml
+
+# Temani Afif Blog
+https://css-articles.com/feed.xml
