@@ -39,7 +39,7 @@ yay
 terminal
 
 ```Shell
-yay -S ghostty zsh starship zoxide fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting micro
+yay -S ghostty zsh starship zoxide fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting fresh-editor-bin
 ```
 
 McFly
