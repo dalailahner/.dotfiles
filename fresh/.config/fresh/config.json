@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "theme": "dalailahner",
+  "check_for_updates": false,
+  "editor": {
+    "tab_size": 2,
+    "scroll_offset": 5,
+    "mouse_hover_delay_ms": 333,
+    "double_click_time_ms": 333,
+    "ensure_final_newline_on_save": true,
+    "cursor_style": "blinking_bar",
+    "use_terminal_bg": true
+  },
+  "file_explorer": {
+    "respect_gitignore": false,
+    "show_hidden": true,
+    "show_gitignored": true
+  },
+  "file_browser": {
+    "show_hidden": true
+  },
+  "plugins": {
+    "welcome": {
+      "enabled": false,
+      "path": "/usr/share/fresh-editor/plugins/welcome.ts"
+    }
+  }
+}

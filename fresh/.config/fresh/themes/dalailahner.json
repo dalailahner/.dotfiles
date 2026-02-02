@@ -1,0 +1,441 @@
+{
+  "name": "dalailahner",
+  "editor": {
+    "bg": "Default",
+    "fg": [
+      217,
+      217,
+      217
+    ],
+    "cursor": [
+      205,
+      35,
+      29
+    ],
+    "inactive_cursor": [
+      76,
+      76,
+      76
+    ],
+    "selection_bg": [
+      205,
+      35,
+      29
+    ],
+    "current_line_bg": "Default",
+    "line_number_fg": [
+      76,
+      76,
+      76
+    ],
+    "line_number_bg": "Default",
+    "diff_add_bg": [
+      77,
+      203,
+      88
+    ],
+    "diff_remove_bg": [
+      205,
+      35,
+      29
+    ],
+    "diff_modify_bg": [
+      223,
+      112,
+      32
+    ]
+  },
+  "ui": {
+    "tab_active_fg": [
+      28,
+      28,
+      28
+    ],
+    "tab_active_bg": [
+      205,
+      35,
+      29
+    ],
+    "tab_inactive_fg": [
+      28,
+      28,
+      28
+    ],
+    "tab_inactive_bg": [
+      76,
+      76,
+      76
+    ],
+    "tab_separator_bg": "Default",
+    "tab_close_hover_fg": [
+      217,
+      217,
+      217
+    ],
+    "tab_hover_bg": [
+      205,
+      35,
+      29
+    ],
+    "menu_bg": [
+      28,
+      28,
+      28
+    ],
+    "menu_fg": [
+      217,
+      217,
+      217
+    ],
+    "menu_active_bg": [
+      205,
+      35,
+      29
+    ],
+    "menu_active_fg": [
+      28,
+      28,
+      28
+    ],
+    "menu_dropdown_bg": [
+      28,
+      28,
+      28
+    ],
+    "menu_dropdown_fg": [
+      217,
+      217,
+      217
+    ],
+    "menu_highlight_bg": [
+      205,
+      35,
+      29
+    ],
+    "menu_highlight_fg": [
+      28,
+      28,
+      28
+    ],
+    "menu_border_fg": [
+      205,
+      35,
+      29
+    ],
+    "menu_separator_fg": [
+      205,
+      35,
+      29
+    ],
+    "menu_hover_bg": [
+      205,
+      35,
+      29
+    ],
+    "menu_hover_fg": [
+      28,
+      28,
+      28
+    ],
+    "menu_disabled_fg": [
+      76,
+      76,
+      76
+    ],
+    "menu_disabled_bg": [
+      28,
+      28,
+      28
+    ],
+    "status_bar_fg": [
+      76,
+      76,
+      76
+    ],
+    "status_bar_bg": [
+      28,
+      28,
+      28
+    ],
+    "prompt_fg": [
+      217,
+      217,
+      217
+    ],
+    "prompt_bg": [
+      28,
+      28,
+      28
+    ],
+    "prompt_selection_fg": [
+      28,
+      28,
+      28
+    ],
+    "prompt_selection_bg": [
+      205,
+      35,
+      29
+    ],
+    "popup_border_fg": [
+      205,
+      35,
+      29
+    ],
+    "popup_bg": [
+      28,
+      28,
+      28
+    ],
+    "popup_selection_fg": [
+      205,
+      35,
+      29
+    ],
+    "popup_selection_bg": [
+      217,
+      217,
+      217
+    ],
+    "popup_text_fg": [
+      217,
+      217,
+      217
+    ],
+    "suggestion_bg": [
+      76,
+      76,
+      76
+    ],
+    "suggestion_selected_bg": [
+      205,
+      35,
+      29
+    ],
+    "help_bg": [
+      28,
+      28,
+      28
+    ],
+    "help_fg": [
+      217,
+      217,
+      217
+    ],
+    "help_key_fg": [
+      217,
+      217,
+      217
+    ],
+    "help_separator_fg": [
+      28,
+      28,
+      28
+    ],
+    "help_indicator_fg": [
+      217,
+      217,
+      217
+    ],
+    "help_indicator_bg": [
+      28,
+      28,
+      28
+    ],
+    "inline_code_bg": [
+      28,
+      28,
+      28
+    ],
+    "split_separator_fg": [
+      205,
+      35,
+      29
+    ],
+    "split_separator_hover_fg": [
+      205,
+      35,
+      29
+    ],
+    "scrollbar_track_fg": "Default",
+    "scrollbar_thumb_fg": [
+      76,
+      76,
+      76
+    ],
+    "scrollbar_track_hover_fg": "Default",
+    "scrollbar_thumb_hover_fg": [
+      205,
+      35,
+      29
+    ],
+    "compose_margin_bg": [
+      28,
+      28,
+      28
+    ],
+    "semantic_highlight_bg": "Default",
+    "terminal_bg": "Default",
+    "terminal_fg": [
+      217,
+      217,
+      217
+    ],
+    "status_warning_indicator_bg": [
+      223,
+      112,
+      32
+    ],
+    "status_warning_indicator_fg": [
+      28,
+      28,
+      28
+    ],
+    "status_error_indicator_bg": [
+      205,
+      35,
+      29
+    ],
+    "status_error_indicator_fg": [
+      28,
+      28,
+      28
+    ],
+    "status_warning_indicator_hover_bg": [
+      223,
+      112,
+      32
+    ],
+    "status_warning_indicator_hover_fg": [
+      28,
+      28,
+      28
+    ],
+    "status_error_indicator_hover_bg": [
+      205,
+      35,
+      29
+    ],
+    "status_error_indicator_hover_fg": [
+      28,
+      28,
+      28
+    ],
+    "tab_drop_zone_bg": [
+      76,
+      76,
+      76
+    ],
+    "tab_drop_zone_border": [
+      205,
+      35,
+      29
+    ],
+    "settings_selected_bg": [
+      205,
+      35,
+      29
+    ],
+    "settings_selected_fg": [
+      217,
+      217,
+      217
+    ]
+  },
+  "search": {
+    "match_bg": [
+      205,
+      35,
+      29
+    ],
+    "match_fg": [
+      217,
+      217,
+      217
+    ]
+  },
+  "diagnostic": {
+    "error_fg": [
+      28,
+      28,
+      28
+    ],
+    "error_bg": [
+      205,
+      35,
+      29
+    ],
+    "warning_fg": [
+      28,
+      28,
+      28
+    ],
+    "warning_bg": [
+      223,
+      112,
+      32
+    ],
+    "info_fg": [
+      28,
+      28,
+      28
+    ],
+    "info_bg": [
+      90,
+      128,
+      242
+    ],
+    "hint_fg": [
+      28,
+      28,
+      28
+    ],
+    "hint_bg": [
+      223,
+      191,
+      32
+    ]
+  },
+  "syntax": {
+    "keyword": [
+      230,
+      76,
+      178
+    ],
+    "string": [
+      77,
+      203,
+      88
+    ],
+    "function": [
+      90,
+      128,
+      242
+    ],
+    "type": [
+      230,
+      76,
+      178
+    ],
+    "variable": [
+      217,
+      217,
+      217
+    ],
+    "constant": [
+      223,
+      112,
+      32
+    ],
+    "operator": [
+      82,
+      224,
+      224
+    ],
+    "comment": [
+      76,
+      76,
+      76
+    ]
+  }
+}
