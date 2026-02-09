@@ -128,7 +128,7 @@ fc-cache -v
 ## SETUP TOOLS
 
 ```Shell
-ya pkg install
+ya pkg add yazi-rs/plugins:smart-enter && ya pkg add yazi-rs/plugins:full-border
 ```
 
 ```Shell
