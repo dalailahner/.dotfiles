@@ -162,6 +162,8 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 # use eza instead of ls
 alias ls='eza'
+# cleanup script
+alias cleanup="$HOME/.dotfiles/scripts/cleanupSystem.sh"
 # run background process (also works for firejail sandboxes)
 runbg() {
   {
