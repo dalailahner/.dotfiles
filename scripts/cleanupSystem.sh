@@ -57,6 +57,13 @@ echo -e "$NC"
 yay -Scc --noconfirm
 echo ""
 
+echo -e "$YELLOW"
+echo -e "-----------------------------------------------"
+echo -e "-------------  prune pnpm store  --------------"
+echo -e "$NC"
+pnpm store prune
+echo ""
+
 echo ""
 echo -e "$GREEN"
 echo -e "###############################################"
@@ -73,7 +80,13 @@ echo ""
 
 echo -e "$YELLOW"
 echo -e "-----------------------------------------------"
-echo -e "----------  journalctl boot errors  -----------"
+echo -e "-------  journalctl  errors since boot  -------"
 echo -e "$NC"
 journalctl -b -p 3 -x --no-pager
 echo ""
+
+echo -e "$GREEN"
+echo -e "###############################################"
+echo -e "#                   DONE :)                   #"
+echo -e "###############################################"
+echo -e "$NC"
