@@ -29,7 +29,7 @@ homeDirBackup () {
 	  printf "\n"
 	  echo "---------------------------------------------------------------------------------"
 	  printf "\nbacking up $1's home directory...\n"
-		excludePaths=("Documents" "Pictures" "Videos" "Music" "3D" ".cache" ".local/share/Trash" ".var" ".local/share/klipper" ".local/share/Steam" ".local/share/pnpm" ".wine/drive_c/users/dalailahner/AppData/Local/Temp" ".config/vesktop/sessionData" ".config/micro/buffers")
+		excludePaths=("Documents" "Pictures" "Videos" "Music" "3D" ".cache" ".local/share/Trash" ".var" ".local/share/klipper" ".local/share/Steam" ".wine/drive_c/users/dalailahner/AppData/Local/Temp" ".config/micro/buffers")
     excludeListArr=()
     for folder in "${excludePaths[@]}"; do
         excludeListArr+=(--exclude="/home/$1/$folder")
