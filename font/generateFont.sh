@@ -24,13 +24,13 @@ SCRIPT_LOCATION=$(dirname "$(readlink -f "$0")")
 
 # download needed files
 curl -L -o "/tmp/HackNerdFont-Regular.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf"
-curl -L -o "/tmp/Myna.ttf" "https://raw.githubusercontent.com/sayyadirfanali/Myna/main/fonts/Myna.ttf"
+curl -L -o "/tmp/Myna-Regular.ttf" "https://raw.githubusercontent.com/sayyadirfanali/Myna/main/fonts/Myna-Regular.ttf"
 
 # run the fontforge script
-/usr/bin/fontforge -script "replaceSymbols.pe" "$SCRIPT_LOCATION/dalailahner-base.sfd" "/tmp/HackNerdFont-Regular.ttf" "/tmp/Myna.ttf" "$SCRIPT_LOCATION/dalailahner.ttf"
+/usr/bin/fontforge -script "replaceSymbols.pe" "$SCRIPT_LOCATION/dalailahner-base.sfd" "/tmp/HackNerdFont-Regular.ttf" "/tmp/Myna-Regular.ttf" "$SCRIPT_LOCATION/dalailahner-new.ttf"
 
 # cleanup
 rm "/tmp/HackNerdFont-Regular.ttf"
-rm "/tmp/Myna.ttf"
+rm "/tmp/Myna-Regular.ttf"
 
 exit 0
