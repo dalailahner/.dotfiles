@@ -1,4 +1,4 @@
-#!fontforge -script
+#! /usr/bin/fontforge -script
 
 # $1 = base.sfd
 # $2 = NerdFont.ttf
@@ -67,7 +67,26 @@ Open($firstfont)
 MergeFonts($3)
 
 
+# remove lookups (errors otherwise)
+lookups = GetLookups("GSUB")
+num = SizeOf(lookups)
+i = 0
+while (i < num)
+  RemoveLookup(lookups[i])
+  i = i + 1
+endloop
+
+lookups = GetLookups("GPOS")
+num = SizeOf(lookups)
+i = 0
+while (i < num)
+  RemoveLookup(lookups[i])
+  i = i + 1
+endloop
+
+
 Generate($4)
 
 
-Quit()
+Close()
+Quit(0)

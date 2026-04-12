@@ -33,4 +33,7 @@ curl -L -o "/tmp/Myna-Regular.ttf" "https://raw.githubusercontent.com/sayyadirfa
 rm "/tmp/HackNerdFont-Regular.ttf"
 rm "/tmp/Myna-Regular.ttf"
 
+echo "!!! IMPORTANT !!! rename dalailahner-new.ttf to dalailahner.ttf in order to use updated font. Press Enter to continue..."
+read -r
+
 exit 0
