@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "theme": "dalailahner",
   "check_for_updates": false,
   "editor": {
@@ -18,6 +18,17 @@
   },
   "file_browser": {
     "show_hidden": true
+  },
+  "lsp": {
+    "bash": {
+      "enabled": true,
+      "auto_start": true,
+      "process_limits": {
+        "max_memory_percent": 50,
+        "max_cpu_percent": 90,
+        "enabled": true
+      }
+    }
   },
   "plugins": {
     "welcome": {
