@@ -229,7 +229,10 @@ else
 fi
 
 # fastfetch
-if [[ "$TERM_PROGRAM" != "vscode" ]]; then
-  fastfetch
+if [[ -n "$WSL_DISTRO_NAME" ]]; then
+  fastfetch --logo-type "sixel"
+else
+  if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+    fastfetch
+  fi
 fi
-
