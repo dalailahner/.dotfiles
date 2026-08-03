@@ -144,11 +144,17 @@ pnpm install -g @biomejs/biome stylelint stylelint-config-standard stylelint-ord
 ## CONFIGURE SYSTEM
 
 - uncomment and set `SystemMaxUse-50M` in `/etc/systemd/journald.conf`.
+
 - if using localsend, don't forget to allow the port in the firewall.
 
+- if webcam is not hot-pluggable try this and reboot:
+```Shell
+echo "uvcvideo" | sudo tee /etc/modules-load.d/uvcvideo.conf
+```
+
 - if dualbooting with windows, set linux to read the hardware clock as local time:
-  ```Shell
-  sudo timedatectl set-local-rtc 1
-  ```
+```Shell
+sudo timedatectl set-local-rtc 1
+```
 
 ---
