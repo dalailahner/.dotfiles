@@ -6,4 +6,4 @@ Target = ttf-hack-nerd
 [Action]
 Description = echo warning to add separator to updated font
 When = PostTransaction
-Exec = /usr/bin/echo -e "\e[1m\e[37m\e[41m ! ttf-hack-nerd got updated. merge the hexagonal separators with the updated font ! \e[0m" > /home/dalailahner/Desktop/fontUpdate.txt
+Exec = /usr/bin/echo -e "\e[1m\e[37m\e[41m ! ttf-hack-nerd got updated. merge the hexagonal separators with the updated font ! \e[0m" & /usr/bin/touch /home/dalailahner/Desktop/plsUpdateDalailahnerFont.txt
