@@ -11,6 +11,29 @@ gui:
       - bold
     selectedLineBgColor:
       - red
+  spinner:
+    frames:
+      - "[    ]"
+      - "[#   ]"
+      - "[ #  ]"
+      - "[  # ]"
+      - "[   #]"
+      - "[    ]"
+      - "[   =]"
+      - "[  = ]"
+      - "[ =  ]"
+      - "[=   ]"
+      - "[    ]"
+      - "[*   ]"
+      - "[ *  ]"
+      - "[  * ]"
+      - "[   *]"
+      - "[    ]"
+      - "[   -]"
+      - "[  - ]"
+      - "[ -  ]"
+      - "[-   ]"
+    rate: 60
 keybinding:
   universal:
     suspendApp: <disabled>
