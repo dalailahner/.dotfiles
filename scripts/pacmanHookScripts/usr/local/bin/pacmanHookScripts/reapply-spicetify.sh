@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+sudo chmod a+wr /opt/spotify
+sudo chmod a+wr /opt/spotify/Apps -R
+
 for dir in /home/*; do
   user=$(basename "$dir")
   # check if real user and if proper directory
