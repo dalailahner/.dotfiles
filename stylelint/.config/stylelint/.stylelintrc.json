@@ -63,10 +63,6 @@
         },
         {
           "type": "at-rule",
-          "name": "starting-style"
-        },
-        {
-          "type": "at-rule",
           "name": "container"
         },
         {
@@ -75,6 +71,10 @@
         },
         "at-rules",
         "rules",
+        {
+          "type": "at-rule",
+          "name": "starting-style"
+        },
         {
           "type": "at-rule",
           "name": "keyframes"
