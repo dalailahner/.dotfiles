@@ -34,42 +34,54 @@ yay
 
 ---
 
-## INSTALL PACKAGES
+## SETUP TERMINAL
 
-terminal
-
-```Shell
-yay -S ghostty zsh starship zoxide fzf zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting fresh-editor-bin
-```
-
-McFly
+### Terminal Emulator + Shell + Prompt
 
 ```Shell
-yay -S mcfly
+yay -S ghostty zsh zsh-autocomplete zsh-autosuggestions zsh-completions zsh-syntax-highlighting starship fastfetch
 ```
 
-yazi
-
-```Shell
-# check if the dependencies are still correct
-yay -S ffmpegthumbnailer p7zip jq poppler fd ripgrep imagemagick yazi
-```
-
-tools
-
-```Shell
-yay -S stow unzip github-cli lazygit ttf-liberation ttf-hack-nerd fnm-bin pnpm fastfetch
-```
-
----
-
-## SET ZSH AS DEFAULT SHELL
+set zsh as default shell
 
 ```Shell
 sudo chsh -s $(which zsh)
 ```
 
 open a new terminal and press "q" to the zsh warning
+
+### Terminal Tools
+
+Navigation (fzf & z)
+
+```Shell
+yay -S fzf zoxide
+```
+
+yazi (file explorer)
+
+```Shell
+# check if the dependencies are still correct
+yay -S ffmpegthumbnailer p7zip jq poppler fd ripgrep imagemagick yazi
+```
+
+McFly (command history)
+
+```Shell
+yay -S mcfly
+```
+
+Fresh (text editor)
+
+```Shell
+yay -S fresh-editor-bin
+```
+
+### CLI Tools
+
+```Shell
+yay -S stow unzip github-cli lazygit ttf-liberation ttf-hack-nerd fnm-bin pnpm
+```
 
 ---
 
@@ -114,6 +126,8 @@ cd ~/.dotfiles && stow .
 ```Shell
 sudo mkdir -p /usr/local/share/fonts
 ```
+
+rename font if everything looks correct
 
 ```Shell
 sudo ln -s ~/.dotfiles/font/dalailahner.ttf /usr/local/share/fonts/dalailahner.ttf
