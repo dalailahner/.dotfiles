@@ -44,6 +44,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt SHARE_HISTORY
 setopt appendhistory
+setopt histignorespace
 
 ## MISC SETTINGS
 setopt autocd
