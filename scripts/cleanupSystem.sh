@@ -67,6 +67,23 @@ echo ""
 echo ""
 echo -e "$GREEN"
 echo -e "###############################################"
+echo -e "#           RUN RKHUNTER AND CLAMAV           #"
+echo -e "###############################################"
+echo -e "$NC"
+
+echo "starting clamav deamon..."
+sudo systemctl start clamav-daemon
+clamdscan --fdpass --multiscan --infected ~/
+sudo systemctl stop clamav-daemon
+
+echo "killing steam before running rkhunter to prevent false positives..."
+pkill steam
+sudo rkhunter --check --skip-keypress --quiet
+sudo rg -i "\[ warning \]" /var/log/rkhunter.log
+
+echo ""
+echo -e "$GREEN"
+echo -e "###############################################"
 echo -e "#                CHECK  ERRORS                #"
 echo -e "###############################################"
 echo -e "$NC"
@@ -90,3 +107,4 @@ echo -e "###############################################"
 echo -e "#                   DONE :)                   #"
 echo -e "###############################################"
 echo -e "$NC"
+echo ""
