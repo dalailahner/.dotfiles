@@ -39,7 +39,7 @@ yay
 ### Terminal Emulator + Shell + Prompt
 
 ```Shell
-yay -S ghostty zsh zsh-autocomplete zsh-autosuggestions zsh-completions zsh-syntax-highlighting starship fastfetch
+yay -S ghostty zsh fzf-tab zsh-autosuggestions zsh-completions zsh-syntax-highlighting starship fastfetch
 ```
 
 set zsh as default shell

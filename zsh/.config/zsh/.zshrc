@@ -2,11 +2,16 @@
 
 
 ## ENVIRONMENT VARIABLES
-export EDITOR=$(where fresh | head -n 1)
-export VISUAL=$(where fresh | head -n 1)
+if (( $+commands[fresh] )); then
+  export EDITOR="fresh"
+  export VISUAL="fresh"
+else
+  export EDITOR="nano"
+  export VISUAL="nano"
+fi
 # for winapps (actually for libvirt)
 export LIBVIRT_DEFAULT_URI="qemu:///system"
-eval `dircolors --bourne-shell ~/.config/zsh/.dir_colors`
+eval "$(dircolors --bourne-shell ~/.config/zsh/.dir_colors)"
 if [[ "$TERM_PROGRAM" != "vscode" ]]; then
   export STARSHIP_CONFIG="$HOME/.config/starship/starship_default.toml"
 else
@@ -15,12 +20,17 @@ fi
 
 ## COMPLETIONS
 
-# commented out because zsh-autocomplete said so:
-#autoload -Uz compinit
-#compinit -d ~/.cache/zsh/.zcompdump
-# pass the argument to compinit tho:
-zstyle '*:compinit' arguments -d ~/.cache/zsh/.zcompdump
+autoload -Uz compinit && compinit -d ~/.cache/zsh/.zcompdump
 
+# fzf-tab
+zstyle ':fzf-tab:*' fzf-flags \
+  --color=bg:-1,bg+:-1,fg:-1,fg+:-1,hl:2,hl+:2,prompt:1,pointer:1,gutter:0 \
+  --prompt='❯ ' \
+  --pointer='▶' \
+  --layout=reverse \
+  --height=40%
+
+# other
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' format 'Suggesting: %d'
@@ -38,6 +48,7 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' verbose true
 zstyle :compinstall filename "$ZDOTDIR/.zshrc"
 
+
 ## HISTORY
 HISTFILE=~/.cache/zsh/.zsh_history
 HISTSIZE=10000
@@ -46,15 +57,14 @@ setopt SHARE_HISTORY
 setopt appendhistory
 setopt histignorespace
 
+
 ## MISC SETTINGS
 setopt autocd
 setopt ignore_eof
+setopt extended_glob
+setopt interactive_comments
 unsetopt beep
 bindkey -e
-# enable extended globbing
-setopt extended_glob
-# fix for zsh-autocomplete
-setopt interactive_comments
 
 
 ## KEYBINDINGS
@@ -96,19 +106,19 @@ key[Control-Right]="${terminfo[kRIT5]}"
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
-	autoload -Uz add-zle-hook-widget
-	function zle_application_mode_start { echoti smkx }
-	function zle_application_mode_stop { echoti rmkx }
-	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
-	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+  autoload -Uz add-zle-hook-widget
+  function zle_application_mode_start { echoti smkx }
+  function zle_application_mode_stop { echoti rmkx }
+  add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+  add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
 
-## PLUGINS
+## PLUGINS & TOOLS
 autoload -Uz zmv
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+[[ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ]] && source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+[[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export FZF_CTRL_T_OPTS="--walker-skip .git,node_modules,.cache,.wine,.steam,.local/share/Steam"
 source <(fzf --zsh)
@@ -120,20 +130,17 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 eval "$(mcfly init zsh)"
 
-
-## TOOLS
-
 # gpg keys for git
 export GPG_TTY=$(tty)
 
 # yazi
 function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
 }
 
 # fnm
@@ -150,7 +157,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 #compdef pnpm
-###-begin-pnpm-completion-###
 if type compdef &>/dev/null; then
   _pnpm_completion () {
     local reply
@@ -175,7 +181,9 @@ if type compdef &>/dev/null; then
     compdef _pnpm_completion pnpm
   fi
 fi
-###-end-pnpm-completion-###
+
+# zsh-syntax-highlighting
+[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 ## ALIASES
@@ -216,8 +224,8 @@ alias lg='lazygit'
 ## STARTUP
 
 # set wallpaper artist as env variable (for fastfetch)
-if command -v qdbus6 > /dev/null; then
-  wallpaper_uri=$(qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.wallpaper 0 | grep -oP 'file://\S+')
+if [[ "$XDG_CURRENT_DESKTOP" == *"KDE"* ]] && command -v qdbus6 >/dev/null 2>&1; then
+  wallpaper_uri=$(qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.wallpaper 0 2>/dev/null | grep -oP 'file://\S+')
   wallpaper_basename=$(basename "${wallpaper_uri#file://}")
   wallpaper_artist=$(echo "$wallpaper_basename" | sed -nE 's/.+[^[:alnum:]]by[^[:alnum:]]([^.]+)\..+/\1/p')
   if [[ -n "$wallpaper_artist" ]]; then
