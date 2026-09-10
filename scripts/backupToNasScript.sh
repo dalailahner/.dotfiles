@@ -46,7 +46,6 @@ homeDirBackup () {
       "/.config/Code/Cache/Cache_Data"
       "/.config/Code/CachedData"
       "/.config/micro/buffers/"
-      "/linux-tkg/linux-src-git/"
       "node_modules/"
     )
     excludeListArr=()
