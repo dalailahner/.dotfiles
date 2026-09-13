@@ -150,7 +150,10 @@ fnm install --latest
 ```
 
 ```Shell
-pnpm install -g @biomejs/biome stylelint stylelint-config-standard stylelint-order stylelint-no-unsupported-browser-features
+pnpm install -g @biomejs/biome
+```
+```Shell
+pnpm install -g stylelint stylelint-config-standard stylelint-order stylelint-no-unsupported-browser-features
 ```
 
 ---
@@ -169,6 +172,14 @@ echo "uvcvideo" | sudo tee /etc/modules-load.d/uvcvideo.conf
 - if dualbooting with windows, set linux to read the hardware clock as local time:
 ```Shell
 sudo timedatectl set-local-rtc 1
+```
+
+- if using KDE Plasma and you don't need file search in KRunner:<br />
+go to System Settings > Search > File Search and disable it ("Data to index:" set to "Nothing").<br />
+don't forget to hit "Apply".<br />
+then run:
+```Shell
+ballooctl6 purge
 ```
 
 ---
