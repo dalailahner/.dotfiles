@@ -8,4 +8,4 @@ Target = *
 [Action]
 Description = Updating rkhunter file database...
 When = PostTransaction
-Exec = /usr/bin/rkhunter --update --propupd
+Exec = /usr/bin/sh -c '/usr/bin/rkhunter --update --propupd >/dev/null 2>&1'
