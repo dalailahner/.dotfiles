@@ -20,18 +20,12 @@ fi
 
 ## COMPLETIONS
 
-autoload -Uz compinit && compinit -d ~/.cache/zsh/.zcompdump
+# commented out because zsh-autocomplete runs it already
+# autoload -Uz compinit && compinit -d ~/.cache/zsh/.zcompdump
+# zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 
-# fzf-tab
-zstyle ':fzf-tab:*' fzf-flags \
-  --color=bg:-1,bg+:-1,fg:-1,fg+:-1,hl:2,hl+:2,prompt:1,pointer:1,gutter:0 \
-  --prompt='❯ ' \
-  --pointer='▶' \
-  --layout=reverse \
-  --height=40%
 
 # other
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' format 'Suggesting: %d'
 zstyle ':completion:*' group-name ''
@@ -117,7 +111,11 @@ fi
 ## PLUGINS & TOOLS
 autoload -Uz zmv
 
-[[ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ]] && source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+zstyle ':autocomplete:*' delay 0.1
+[[ -f /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+zstyle ':completion:*:warnings' format ''
+
+ZSH_AUTOSUGGEST_STRATEGY=(history)
 [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export FZF_CTRL_T_OPTS="--walker-skip .git,node_modules,.cache,.wine,.steam,.local/share/Steam"
@@ -156,7 +154,7 @@ case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
-#compdef pnpm
+# compdef pnpm
 if type compdef &>/dev/null; then
   _pnpm_completion () {
     local reply
@@ -230,10 +228,10 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"KDE"* ]] && command -v qdbus6 >/dev/null 2>&1;
   wallpaper_artist=$(echo "$wallpaper_basename" | sed -nE 's/.+[^[:alnum:]]by[^[:alnum:]]([^.]+)\..+/\1/p')
   if [[ -n "$wallpaper_artist" ]]; then
     export WALLPAPER_ARTIST="${wallpaper_artist//_/ }"
-  else  
+  else
     export WALLPAPER_ARTIST="unknown"
   fi
-else  
+else
   export WALLPAPER_ARTIST="unknown"
 fi
 
