@@ -7,138 +7,158 @@
     "width": 75
   },
   "display": {
-    "separator": " │ ",
-    "color": {
-      "keys": "red",
-      "separator": "red"
-    },
-    "constants": ["│\u001b[75C│\u001b[75D"]
+    "separator": ""
   },
   "modules": [
     {
+      "type": "terminalsize",
+      "format": "lua:terminal = ...; cols = terminal.columns; table_keys_max_length = 13; table_values_max_length = math.floor(cols / 2) - table_keys_max_length - 2; borderStyle = string.format('\u001b[31m\u001b[%sC│\u001b[%sD\u001b[0m', table_values_max_length, table_values_max_length)"
+    },
+    {
       "type": "title",
-      "format": "{#31}╭─ {user-name}{#37}@{#36}{host-name} {#31}───────────────────────────────────────────────────╮"
+      "format": "lua:local args = ...;local beforeLines = string.rep('─', 12 - #args.userName); local afterLines = string.rep('─', math.floor(cols / 2) - #args.userName - #args.hostName - 5); return string.format('\u001b[31m╭%s %s\u001b[37m@\u001b[36m%s \u001b[31m%s╮\u001b[0m', beforeLines, args.userName, args.hostName, afterLines)"
     },
     {
       "type": "board",
-      "key": "{$1}{#32}Board      "
+      "key": "{#31}│{#32}Board        {#31}│",
+      "format": "lua:local args = ...; local output = args.name; return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "cpu",
-      "key": "{$1}{#32}CPU        "
+      "key": "{#31}│{#32}CPU          {#31}│",
+      "format": "lua:local args = ...; local frequency = (#args.freqMax > 0) and args.freqBase .. ' (max: ' .. args.freqMax .. ')' or args.freqBase; local temperature = (#args.temperature > 0) and ' \uf2c9' .. args.temperature or ''; local offset = (#args.temperature > 0) and 4 or 2; local output = string.format('%s (\uf4bc %s/%s) @ %s%s', args.name, args.coresPhysical, args.coresLogical, frequency, temperature); return (#output - offset > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3 + offset) .. '...' or borderStyle .. output"
     },
     {
       "type": "gpu",
-      "key": "{$1}{#32}GPU        ",
-      "hideType": "integrated"
+      "key": "{#31}│{#32}GPU          {#31}│",
+      "hideType": "integrated",
+      "format": "lua:local args = ...; local frequency = (#args.frequency > 0) and ' @ ' .. args.frequency or ''; local vram = (#args.dedicatedTotal > 0) and '(' .. args.dedicatedTotal .. ')' or ''; local output = string.format('%s%s%s', args.name, frequency, vram); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "memory",
-      "key": "{$1}{#32}RAM        "
+      "key": "{#31}│{#32}RAM          {#31}│",
+      "format": "lua:local args = ...; local offset = 4; local output = string.format('%s / %s (%s)', args.used, args.total, args.percentage); return (#output - offset > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3 + offset) .. '...' or borderStyle .. output"
     },
     {
       "type": "swap",
-      "key": "{$1}{#32}Swap       "
+      "key": "{#31}│{#32}Swap         {#31}│",
+      "format": "lua:local args = ...; local offset = 4; local output = string.format('%s / %s (%s)', args.used, args.total, args.percentage); return (#output - offset > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3 + offset) .. '...' or borderStyle .. output"
     },
     {
       "type": "disk",
-      "key": "{$1}{#32}Disk       ",
-      "folders": "/"
+      "key": "{#31}│{#32}Disk         {#31}│",
+      "folders": "/",
+      "format": "lua:local args = ...; local offset = 4; local output = string.format('%s / %s (%s) - %s @ %s', args.sizeUsed, args.sizeTotal, args.sizePercentage, args.filesystem, args.mountFrom); return (#output - offset > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3 + offset) .. '...' or borderStyle .. output"
     },
     {
       "type": "display",
-      "key": "{$1}{#32}Display    "
+      "key": "{#31}│{#32}Display      {#31}│",
+      "format": "lua:local args = ...;local primary = (args.isPrimary) and ' [main]' or ''; local output = string.format('%sx%s @ %sHz (%s)%s', args.width, args.height, args.refreshRate, args.name, primary); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "custom",
-      "format": "{#31}{$1}            │"
+      "format": "lua:local firstSpaces = string.rep(' ', table_keys_max_length); local secondSpaces = string.rep(' ', math.floor(cols / 2) - table_keys_max_length - 2); return string.format('\u001b[31m│%s│%s│\u001b[0m', firstSpaces, secondSpaces)"
     },
     {
       "type": "kernel",
-      "key": "{$1}{#33}Kernel     "
+      "key": "{#31}│{#33}Kernel       {#31}│",
+      "format": "lua:local args = ...; local release = (#args.release > 0) and ' (' .. args.release .. ')' or ''; local output = string.format('%s%s', args.sysname, release); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "initsystem",
-      "key": "{$1}{#33}InitSystem "
+      "key": "{#31}│{#33}InitSystem   {#31}│",
+      "format": "lua:local args = ...; local version = (#args.version > 0) and ' (' .. args.version .. ')' or ''; local output = string.format('%s%s', args.name, version); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "lm",
-      "key": "{$1}{#33}LM         "
+      "key": "{#31}│{#33}Login Mgr    {#31}│",
+      "format": "lua:local args = ...; local version = (#args.version > 0) and ' (' .. args.version .. ')' or ''; local output = string.format('%s%s', args.prettyName, version); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "de",
-      "key": "{$1}{#33}DE         "
+      "key": "{#31}│{#33}Desktop Env  {#31}│",
+      "format": "lua:local args = ...; local version = (#args.version > 0) and ' (' .. args.version .. ')' or ''; local output = string.format('%s%s', args.prettyName, version); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "wm",
-      "key": "{$1}{#33}WM         "
+      "key": "{#31}│{#33}Window Mgr   {#31}│",
+      "format": "lua:local args = ...; local protocol = (#args.protocolName > 0) and ' (' .. args.protocolName .. ')' or ''; local output = string.format('%s%s', args.prettyName, protocol); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "packages",
-      "key": "{$1}{#33}Packages   "
+      "key": "{#31}│{#33}Packages     {#31}│",
+      "format": "lua:local args = ...; local arr = {}; for key, val in pairs(args) do if type(val) == 'number' and val > 0 and key ~= 'all' then arr[#arr+1] = key end end; local packageManagers = table.concat(arr, ' '); local output = string.format('%s (%s)', args.all, packageManagers); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "custom",
-      "format": "{#31}{$1}            │"
+      "format": "lua:local firstSpaces = string.rep(' ', table_keys_max_length); local secondSpaces = string.rep(' ', math.floor(cols / 2) - table_keys_max_length - 2); return string.format('\u001b[31m│%s│%s│\u001b[0m', firstSpaces, secondSpaces)"
     },
     {
       "type": "theme",
-      "key": "{$1}{#34}Theme      ",
-      "format": "{1}"
+      "key": "{#31}│{#34}Theme        {#31}│",
+      "format": "lua:local args = ...; return (#args.theme1 > table_values_max_length) and borderStyle .. args.theme1:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. args.theme1"
     },
     {
       "type": "wmtheme",
-      "key": "{$1}{#34}WM Theme   "
+      "key": "{#31}│{#34}WM Theme     {#31}│",
+      "format": "lua:local args = ...; return (#args.result > table_values_max_length) and borderStyle .. args.result:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. args.result"
     },
     {
       "type": "icons",
-      "key": "{$1}{#34}Icons      ",
-      "format": "{1}"
+      "key": "{#31}│{#34}Icons        {#31}│",
+      "format": "lua:local args = ...; return (#args.icons1 > table_values_max_length) and borderStyle .. args.icons1:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. args.icons1"
     },
     {
       "type": "cursor",
-      "key": "{$1}{#34}Cursor     "
+      "key": "{#31}│{#34}Cursor       {#31}│",
+      "format": "lua:local args = ...; local size = (#args.size > 0) and ' (' .. args.size .. ')' or ''; local output = string.format('%s%s', args.theme, size); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "font",
-      "key": "{$1}{#34}Font       ",
-      "format": "{1}"
+      "key": "{#31}│{#34}Font         {#31}│",
+      "format": "lua:local args = ...; return (#args.font1 > table_values_max_length) and borderStyle .. args.font1:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. args.font1"
     },
     {
       "type": "custom",
-      "format": "{#31}{$1}            │"
+      "format": "lua:local firstSpaces = string.rep(' ', table_keys_max_length); local secondSpaces = string.rep(' ', math.floor(cols / 2) - table_keys_max_length - 2); return string.format('\u001b[31m│%s│%s│\u001b[0m', firstSpaces, secondSpaces)"
     },
     {
       "type": "terminal",
-      "key": "{$1}{#35}Terminal   "
+      "key": "{#31}│{#35}Terminal     {#31}│",
+      "format": "lua:local args = ...; local version = (#args.version > 0) and ' (' .. args.version .. ')' or ''; local output = string.format('%s%s', args.prettyName, version); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "terminalfont",
-      "key": "{$1}{#35}Font       "
+      "key": "{#31}│{#35}Font         {#31}│",
+      "format": "lua:local args = ...; return (#args.combined > table_values_max_length) and borderStyle .. args.combined:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. args.combined"
     },
     {
       "type": "shell",
-      "key": "{$1}{#35}Shell      "
+      "key": "{#31}│{#35}Shell        {#31}│",
+      "format": "lua:local args = ...; local version = (#args.version > 0) and ' (' .. args.version .. ')' or ''; local output = string.format('%s%s', args.prettyName, version); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "editor",
-      "key": "{$1}{#35}Editor     "
+      "key": "{#31}│{#35}Editor       {#31}│",
+      "format": "lua:local args = ...; local version = (#args.version > 0) and ' (' .. args.version .. ')' or ''; local output = string.format('%s%s', args.name, version); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "custom",
-      "format": "{#31}├─────────────┴─────────────────────────────────────────────────────────────┤"
+      "format": "lua:local firstLines = string.rep('─', table_keys_max_length); local secondLines = string.rep('─', math.floor(cols / 2) - table_keys_max_length - 2); return string.format('\u001b[31m├%s┴%s┤\u001b[0m', firstLines, secondLines)"
     },
     {
       "type": "custom",
-      "format": "{#31}{$1}{#40}  {#41}  {#42}  {#43}  {#44}  {#45}  {#46}  {#47}  {#49}{#31} Terminal img by 雨様 (@Yu_Yang6)"
+      "format": "lua:local fillerSpaces = string.rep(' ', math.floor(cols / 2) - 50); return string.format('\u001b[31m│\u001b[40m  \u001b[41m  \u001b[42m  \u001b[43m  \u001b[44m  \u001b[45m  \u001b[46m  \u001b[47m  \u001b[0m \u001b[31mTerminal img by 雨様 (@Yu_Yang6)%s│\u001b[0m', fillerSpaces)"
+    },
+    {
+      "type": "command",
+      "key": " ",
+      "text": "echo -n $WALLPAPER_ARTIST",
+      "format": "lua:local command = ...; local wallpaper_artist = command.result; local fillerSpaces = string.rep(' ', math.floor(cols / 2) - 39 - #wallpaper_artist); return string.format('\u001b[31m│\u001b[100m  \u001b[101m  \u001b[102m  \u001b[103m  \u001b[104m  \u001b[105m  \u001b[106m  \u001b[107m  \u001b[0m \u001b[31mDesktop Wallpaper by %s%s│\u001b[0m', wallpaper_artist, fillerSpaces)"
     },
     {
       "type": "custom",
-      "format": "{#31}{$1}{#100}  {#101}  {#102}  {#103}  {#104}  {#105}  {#106}  {#107}  {#49}{#31} Desktop Wallpaper by {$WALLPAPER_ARTIST}"
-    },
-    {
-      "type": "custom",
-      "format": "{#31}╰───────────────────────────────────────────────────────────────────────────╯"
+      "format": "lua:local lines = string.rep('─', math.floor(cols / 2) - 1); return string.format('\u001b[31m╰%s╯\u001b[0m', lines)"
     }
   ]
 }

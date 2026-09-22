@@ -236,6 +236,11 @@ else
 fi
 
 # fastfetch
+function fastfetch () {
+  local logo_width=$(( ${COLUMNS:-$(tput cols)} / 2 - 2 ))
+  command fastfetch --logo-width "$logo_width" "$@"
+}
+
 if [[ -n "$WSL_DISTRO_NAME" ]]; then
   fastfetch --logo-type "sixel"
 else
