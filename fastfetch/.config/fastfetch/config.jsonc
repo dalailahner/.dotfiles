@@ -53,7 +53,7 @@
     {
       "type": "display",
       "key": "{#31}│{#32}Display      {#31}│",
-      "format": "lua:local args = ...;local primary = (args.isPrimary) and ' [main]' or ''; local output = string.format('%sx%s @ %sHz (%s)%s', args.width, args.height, args.refreshRate, args.name, primary); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
+      "format": "lua:local args = ...; local hertz = (#args.refreshRate) and ' @ ' .. args.refreshRate .. 'Hz' or ''; local model = (#args.name) and ' (' .. args.name .. ')' or ''; local primary = (args.isPrimary) and ' [main]' or ''; local output = string.format('%sx%s%s%s%s', args.width, args.height, hertz, model, primary); return (#output > table_values_max_length) and borderStyle .. output:sub(1, table_values_max_length - 3) .. '...' or borderStyle .. output"
     },
     {
       "type": "custom",
