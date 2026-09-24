@@ -28,7 +28,7 @@ homeDirBackup () {
     printf "\n"
     echo "---------------------------------------------------------------------------------"
     printf "\nbacking up %s's home directory...\n" "$1"
-    excludePaths=(
+    local excludePaths=(
       "/Documents/"
       "/Pictures/"
       "/Videos/"
@@ -48,7 +48,7 @@ homeDirBackup () {
       "/.config/micro/buffers/"
       "node_modules/"
     )
-    excludeListArr=()
+    local excludeListArr=()
     for folder in "${excludePaths[@]}"; do
         excludeListArr+=(--exclude="$folder")
     done
@@ -58,13 +58,18 @@ homeDirBackup () {
     sudo -u "$1" rsync -aAXv --delete "/home/$1/Documents/" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/Documents/" 2>> "$errorLogFile"
 
     printf "\nbacking up Pictures ...\n"
+    local picFolder=""
     picFolder=$(readlink -f "/home/$1/Pictures")
-    sudo -u "$1" rsync -aAXv --delete "$picFolder/" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/Pictures/" 2>> "$errorLogFile"
+    if [[ -n $picFolder ]]; then
+      sudo -u "$1" rsync -aAXv --delete "$picFolder/" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/Pictures/" 2>> "$errorLogFile"
+    fi
 
     printf "\nbacking up Videos ...\n"
+    local vidFolder=""
     vidFolder=$(readlink -f "/home/$1/Videos")
-    sudo -u "$1" rsync -aAXv --delete "$vidFolder/" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/Videos/" 2>> "$errorLogFile"
-
+    if [[ -n $vidFolder ]]; then
+      sudo -u "$1" rsync -aAXv --delete "$vidFolder/" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/Videos/" 2>> "$errorLogFile"
+    fi
     printf "\nbacking up Music ...\n"
     sudo -u "$1" rsync -aAXv --delete "/home/$1/Music/" "$SSHusername@$backupMachineIP:/mnt/MAIN/NAS/BACKUPS/media/Music/" 2>> "$errorLogFile"
 
