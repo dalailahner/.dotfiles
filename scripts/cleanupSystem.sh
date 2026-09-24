@@ -71,54 +71,62 @@ if command -v pnpm >/dev/null 2>&1; then
   echo ""
 fi
 
-echo ""
-echo -e "$GREEN"
-echo "###############################################"
-echo "#           RUN CLAMAV AND RKHUNTER           #"
-echo "###############################################"
-echo -e "$NC"
-
 if command -v clamdscan >/dev/null 2>&1 && command -v rkhunter >/dev/null 2>&1; then
-  echo -e "$YELLOW"
-  echo "-----------------------------------------------"
-  echo "------------------  ClamAV  -------------------"
-  echo -e "$NC"
-
-  echo "starting clamav deamon..."
-  sudo systemctl start clamav-daemon
-
-  echo "running clamdscan..."
-  clamav_output=$(clamdscan --fdpass --multiscan --infected ~/ 2>&1)
-
-  if echo "$clamav_output" | $GREP_CMD -q -e "--- SCAN SUMMARY ---"; then
-    echo "$clamav_output" | sed -n '/--- SCAN SUMMARY ---/,$p'
-  else
-    echo -e "${RED}[ ERROR ]: ClamAV scan failed to produce a summary!${NC}" >&2
-    echo "--- full ClamAV output ---" >&2
-    echo "$clamav_output" >&2
-  fi
-  echo "stopping clamav deamon..."
-  sudo systemctl stop clamav-daemon
   echo ""
+  read -r -p "wanna run ClamAV and rkhunter? (y/n): " RUN_SCANS
+  case "$RUN_SCANS" in
+    [yY][eE][sS]|[yY])
+      echo ""
+      echo -e "$GREEN"
+      echo "###############################################"
+      echo "#           RUN CLAMAV AND RKHUNTER           #"
+      echo "###############################################"
+      echo -e "$NC"
+      echo -e "$YELLOW"
+      echo "-----------------------------------------------"
+      echo "------------------  ClamAV  -------------------"
+      echo -e "$NC"
 
-  echo -e "$YELLOW"
-  echo "-----------------------------------------------"
-  echo "-----------------  rkhunter  ------------------"
-  echo -e "$NC"
+      echo "starting clamav deamon..."
+      sudo systemctl start clamav-daemon
 
-  echo "killing steam before running rkhunter to prevent false positives..."
-  pkill steam || true
+      echo "running clamdscan..."
+      clamav_output=$(clamdscan --fdpass --multiscan --infected ~/ 2>&1)
 
-  echo "running rkhunter..."
-  rkhunter_output=$(sudo rkhunter --check --skip-keypress 2>&1)
+      if echo "$clamav_output" | $GREP_CMD -q -e "--- SCAN SUMMARY ---"; then
+        echo "$clamav_output" | sed -n '/--- SCAN SUMMARY ---/,$p'
+      else
+        echo -e "${RED}[ ERROR ]: ClamAV scan failed to produce a summary!${NC}" >&2
+        echo "--- full ClamAV output ---" >&2
+        echo "$clamav_output" >&2
+      fi
+      echo "stopping clamav deamon..."
+      sudo systemctl stop clamav-daemon
+      echo ""
 
-  if echo "$rkhunter_output" | $GREP_CMD -q "System checks summary"; then
-    echo "$rkhunter_output" | sed -n '/System checks summary/,$p'
-  else
-    echo -e "${RED}[ ERROR ]: rkhunter scan failed to produce a summary!${NC}" >&2
-    echo "--- full rkhunter output ---" >&2
-    echo "$rkhunter_output" >&2
-  fi
+      echo -e "$YELLOW"
+      echo "-----------------------------------------------"
+      echo "-----------------  rkhunter  ------------------"
+      echo -e "$NC"
+
+      echo "killing steam before running rkhunter to prevent false positives..."
+      pkill steam || true
+
+      echo "running rkhunter..."
+      rkhunter_output=$(sudo rkhunter --check --skip-keypress 2>&1)
+
+      if echo "$rkhunter_output" | $GREP_CMD -q "System checks summary"; then
+        echo "$rkhunter_output" | sed -n '/System checks summary/,$p'
+      else
+        echo -e "${RED}[ ERROR ]: rkhunter scan failed to produce a summary!${NC}" >&2
+        echo "--- full rkhunter output ---" >&2
+        echo "$rkhunter_output" >&2
+      fi
+      ;;
+    *)
+      echo ""
+      ;;
+  esac
 else
   echo -e "${YELLOW}clamdscan/rkhunter not found. skipping scan...${NC}"
 fi
