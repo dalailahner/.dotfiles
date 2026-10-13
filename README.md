@@ -9,7 +9,7 @@ sudo pacman -Syu
 ```
 
 ```Shell
-sudo pacman -S --needed base-devel git
+sudo pacman -S --needed base-devel git git-lfs
 ```
 
 ```Shell
@@ -98,6 +98,12 @@ git config --global rebase.updateRefs true &&
 git config --global pull.ff only &&
 git config --global core.autocrlf input
 # also setup GPG key
+```
+
+```Shell
+git lfs install
+# copy your global .gitattributes file from somewhere, or set it up manually
+git config --global core.attributesfile ~/.gitattributes
 ```
 
 ### clone
