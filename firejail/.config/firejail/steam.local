@@ -1,2 +1,4 @@
 ignore nou2f
 ignore private-dev
+ignore noroot
+ignore seccomp
