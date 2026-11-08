@@ -141,13 +141,25 @@ body {
   --divider-thickness: 1px; /* thickness of unread messages divider and highlighted message borders */
 }
 
-/* fix clipping on the "nav" title text */
+/* add back bottom border of friends top bar */
+#app-mount section:is([class*=" container_"], [class^="container_"]) {
+  border-bottom: var(--border-thickness) solid var(--border);
+  &:hover {
+    border-bottom-color: var(--border-hover);
+  }
+}
+
+/* fix clipping on the "nav" title text and fix the read all button */
 nav:is([class^='wrapper_'],
 [class^='guilds_']),
 nav:is([class*=' wrapper_'],
 [class*=' guilds_']) {
   -webkit-mask: none;
   mask: none;
+  & button[class*="vc-text-btn"] {
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
 }
 
 /* fix clipping on the "chat" title text */
