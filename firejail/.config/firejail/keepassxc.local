@@ -1,0 +1,11 @@
+# for communication with Brave
+noblacklist ${RUNUSER}/app
+mkdir ${RUNUSER}/app/org.keepassxc.KeePassXC
+whitelist ${RUNUSER}/app/org.keepassxc.KeePassXC
+whitelist ${RUNUSER}/org.keepassxc.KeePassXC.BrowserServer
+
+# system tray icon
+ignore dbus-user none
+dbus-user filter
+dbus-user.talk org.kde.StatusNotifierWatcher
+dbus-user.own org.kde.*

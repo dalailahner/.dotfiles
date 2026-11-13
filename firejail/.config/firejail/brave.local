@@ -1,4 +1,13 @@
+# for communication with KeePass
+noblacklist ${RUNUSER}/app
+
+# extra folder access
 whitelist ${HOME}/Desktop
 
 # for the video download helper extension:
 whitelist ${HOME}/.local/share/vdhcoapp
+
+# for communication with KeePass
+whitelist ${RUNUSER}/app/org.keepassxc.KeePassXC
+whitelist ${RUNUSER}/org.keepassxc.KeePassXC.BrowserServer
+whitelist ${RUNUSER}/kpxc_server
